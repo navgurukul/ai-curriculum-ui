@@ -1,0 +1,269 @@
+/* .project-main-wrapper {
+  border: 3px solid red;
+} */
+
+.project-content {
+  /* margin-top: 6.5%; */
+  /* padding-top: 5%; */
+  display: flex;
+}
+
+.input-topic-wrapper,
+.project-num-wrapper {
+  margin: 10px 0px;
+  width: 50%;
+
+  /* max-width: 500px; */
+  display: flex;
+  justify-content: space-between;
+  /* border: 1px solid red; */
+}
+
+.input-topic-wrapper input,
+.project-num-wrapper input {
+  /* width: 50%; */
+  outline: none;
+  border: 0.5px solid grey;
+  border-radius: 3px;
+  padding: 4px 2%;
+}
+
+.hr-line{
+  margin: 20px 0px;
+}
+
+.simple-text {
+  /* border: 3px solid rgb(223, 63, 63); */
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.project-loading {
+  border: 3px solid rgb(223, 63, 63);
+  flex: 1;
+  padding: 2% 3%;
+}
+
+.loader {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex: 1;
+  /* width: 100%; */
+  /* padding: 2% 5%; */
+  margin-top: 10px;
+}
+
+.loader hr {
+  border-radius: 4px;
+  border: none;
+  background-color: var(--background-color);
+  background: linear-gradient(to right, #adadadb3, #ffffffb0, #adadadb3);
+  background-size: 800px 50px;
+  height: 20px;
+  animation: loader 3s infinite linear;
+}
+
+@keyframes loader {
+  0% {
+    background-position: -800px;
+  }
+  100% {
+    background-position: 800px 0px;
+  }
+}
+
+.result-project {
+  padding: 1% 5%;
+  height: 88vh;
+  overflow-y: scroll;
+  padding: 1% 5%;
+  padding-top: 3%;
+  /* border-left: 0.5px solid grey; */
+}
+
+.project-details {
+  border: 3px solid rgb(223, 63, 63);
+  flex: 1;
+  padding: 1% 5%;
+}
+
+.form-detail {
+  /* border: 3px solid rgb(222, 231, 56); */
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
+  align-items: center;
+  padding-top: 6%;
+}
+
+.project-date {
+  font-size: 9px;
+}
+
+.history-section {
+  width: 100%;
+  text-align: center;
+  text-decoration: underline;
+}
+
+.history-section h3 {
+  margin-top: 25px;
+}
+
+.projects-list {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 1% 8%;
+  overflow-y: scroll;
+
+}
+
+.project-entry {
+  border: 0.5px solid grey;
+  border-radius: 3px;
+  width: 100px;
+  /* height: 50px; */
+  /* padding: 4px 2%; */
+  /* margin: 5px 10px; */
+  cursor: pointer;
+
+  min-width: 135px;
+  margin: 10px 20px; 
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-right: 10px;
+}
+
+.image-container{
+  height: 50px;
+}
+
+.image-container img{
+  width: var(--img-width-small-card);
+  height: var(--img-height-small-card);
+}
+
+.topic-text h5{
+  text-decoration: none !important;
+
+}
+
+.generate-proj-btn {
+  width: 50%;
+  text-align: center;
+}
+
+.generate-proj-btn button {
+  width: 150px;
+  background-color: var(--transparent-button);
+  outline: none;
+  border: none;
+  border-radius: 3px;
+  color: var(--white-color);
+  border: 0.5px solid grey;
+  padding: 3px 10px;
+}
+
+.project-link {
+  color: blue;
+  text-decoration: underline;
+}
+
+.proj-pdf {
+  color: white;
+  font-size: 12px;
+  text-decoration: underline;
+}
+
+@media screen and (max-width: 1226px) {
+  .input-topic-wrapper,
+  .project-num-wrapper {
+    width: 100%;
+    padding: 0% 15%;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .project-content {
+    flex-direction: row;
+  }
+  .form-detail {
+    justify-content: flex-start;
+    padding-top: 12%;
+    /* position: fixed;
+    bottom: 0;
+    left: 0; */
+    width: 100%;
+  }
+
+  .input-topic-wrapper,
+  .project-num-wrapper {
+    width: 100%;
+    padding: 0px 5%;
+  }
+  .project-entry {
+width: 120px;
+  }
+}
+
+@media screen and (max-width: 807px) {
+  .input-topic-wrapper,
+  .project-num-wrapper {
+    width: 100%;
+  }
+
+  .project-num-wrapper input {
+    max-height: 30px;
+  }
+
+  .projects-list {
+    justify-content: center;
+    padding: 1% 3%;
+  }
+}
+
+/* @media screen and (max-width: 1226px) {
+  .input-topic-wrapper, .project-num-wrapper {
+    width: 100%;
+    padding: 0% 15%;
+  }
+} */
+
+@media screen and (max-width: 426px) {
+  .project-content {
+    flex-direction: column-reverse;
+  }
+  .history-section {
+    display: none;
+  }
+  .input-topic-wrapper,
+  .project-num-wrapper {
+    width: 100%;
+    padding: 0px 3%;
+  }
+  .result-project {
+    height: 68vh;
+    padding-bottom: 2%;
+  }
+  .generate-proj-btn {
+    margin-bottom: 15px;
+  }
+  .form-detail { 
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+  }
+  .generate-proj-btn button {
+    padding: 7px 10px;
+  }
+  .hr-line {
+    display: none;
+  }
+}
