@@ -40,7 +40,8 @@
 
 .topic-name,
 .mcq-feed,
-.btn-wrapper {
+.btn-wrapper,
+.file-type {
   /* border: 1px solid red; */
   width: 38%;
   display: flex;
@@ -50,6 +51,12 @@
   input {
     margin-left: 20px;
   }
+}
+
+.file-type {
+  input {
+    margin-right: 5px;
+  } 
 }
 
 .btn-wrapper {
@@ -153,6 +160,16 @@
   .single-box {
     width: 100px;
   }
+  .file-info {
+    display: none;
+  }
+
+  .topic-name,
+  .mcq-feed,
+  .btn-wrapper,
+  .file-type { 
+    width: 75%;
+  }
 }
 
 @media screen and (max-width: 426px) {
@@ -185,14 +202,18 @@
 
   .topic-name,
   .mcq-feed,
-  .btn-wrapper {
+  .btn-wrapper,
+  .file-type {
     width: 100%;
     padding: 0% 5%;
     /* border: 1px solid red; */
-
   }
 
-  .btn-wrapper .generate-mcq-btn{
+  .file-info {
+    display: none;
+  }
+
+  .btn-wrapper .generate-mcq-btn {
     /* width: 55%; */
     padding: 7px 10px;
   }

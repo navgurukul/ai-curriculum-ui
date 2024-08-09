@@ -7,6 +7,7 @@ const DisplayResult = ({
   topic,
   mcqNumber,
   response,
+  selectedFileType,
   apistopRef,
   updateResponse, 
 }) => {
@@ -40,7 +41,11 @@ const DisplayResult = ({
     const payload = {
       topic,
       numQuestions: mcqNumber,
+      // fileTypes: [selectedFileType],  
+      fileTypes: mcqNumber > 30 ? selectedFileType : [],
     };
+    console.log(payload);
+    // return
     const token = localStorage.getItem("token");
 
     try {
@@ -121,7 +126,7 @@ const DisplayResult = ({
           <>
             <img src={assets.NG_logo} alt="React Logo" />
             {mcqNumber > 30 ? (
-              <p>You will receive the MCQs via email shortly.</p>
+              <p>You will receive the MCQs through email shortly.</p>
             ) : (
               <p dangerouslySetInnerHTML={{ __html: resultData }}></p>
             )}

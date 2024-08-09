@@ -28,6 +28,8 @@ const MCQ = () => {
   const [responses, setResponses] = useState([]);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [email, setEmail] = useState("");
+  // const [selectedFileType, setSelectedFileType] = useState(fileTypes[0]);
+  const [selectedFileTypes, setSelectedFileTypes] = useState([]);
   const apistopRef = useRef(false);
 
   useEffect(() => {
@@ -49,7 +51,7 @@ const MCQ = () => {
   const handleGenerateMCQ = () => {
     if (topic.length <= 1) {
       toast.error(
-        "Please enter correct topic name or select from suggestion box."
+        "Please enter a valid topic name or select one from the suggestion box."
       );
       return;
     }
@@ -58,7 +60,7 @@ const MCQ = () => {
       return;
     }
     if (!topic || !mcqNumber) {
-      toast.error("Please enter a topic and the number of questions");
+      toast.error("Please enter both  a topic and the number of questions");
       return;
     }
     if (!topic) {
@@ -66,7 +68,11 @@ const MCQ = () => {
       return;
     }
     if (mcqNumber > 500) {
-      toast.error("MCQ limit is 500");
+      toast.error("The maximum limit for MCQs is 500.");
+      return;
+    }
+    if (mcqNumber > 30 && selectedFileTypes.length === 0) {
+      toast.error("Please select at least one file type.");
       return;
     }
     if (mcqNumber > 30) {
@@ -74,10 +80,17 @@ const MCQ = () => {
     }
     setResponses((prevResponses) => [
       ...prevResponses,
-      { topic, mcqNumber, response: null },
+      {
+        topic,
+        mcqNumber,
+        // fileTypes: [selectedFileType],
+        fileTypes: mcqNumber > 30 ? selectedFileTypes : [],
+        response: null,
+      },
     ]);
     setTopic("");
     setMcqNumber("");
+    setSelectedFileTypes([]);
   };
 
   const updateResponse = (index, newResponse) => {
@@ -88,7 +101,15 @@ const MCQ = () => {
     );
   };
 
-  
+
+  const handleFileTypeChange = (e) => {
+    const { value, checked } = e.target;
+    setSelectedFileTypes((prevSelected) =>
+      checked
+        ? [...prevSelected, value]
+        : prevSelected.filter((type) => type !== value)
+    );
+  };
 
   return (
     <>
@@ -115,6 +136,69 @@ const MCQ = () => {
                   onChange={(e) => setMcqNumber(e.target.value)}
                 />
               </div>
+              {/* {mcqNumber > 30 && (
+                <div className="file-type-select">
+                  <label htmlFor="fileType">File Type</label>
+                  <select
+                    id="fileType"
+                    value={selectedFileType}
+                    onChange={(e) => setSelectedFileType(e.target.value)}
+                    ///disabled={mcqNumber < 30}
+                    style={{
+                      borderColor: mcqNumber > 30 ? "green" : "",
+                    }}
+                  >
+                    {fileTypes.map((type) => (
+                      <option key={type} value={type}>
+                        {type.toUpperCase()}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+              )} */}
+              {mcqNumber > 30 && (
+                <>
+                  <div className="file-type">
+                    <label>File Type </label>
+                    <div
+                      style={{
+                        display: "flex",
+                        alignItems: "center",
+                      }}
+                    >
+                      <input
+                        type="checkbox"
+                        name="filetype"
+                        value="pdf"
+                        onChange={handleFileTypeChange}
+                      />
+                      <span>PDF</span>
+                      <input
+                        type="checkbox"
+                        name="filetype"
+                        value="csv"
+                        onChange={handleFileTypeChange}
+                      />
+                      <span>CSV</span>
+                      <input
+                        type="checkbox"
+                        name="filetype"
+                        value="json"
+                        onChange={handleFileTypeChange}
+                      />
+                      <span style={{ margin: "0px" }}>JSON</span>
+                    </div>
+                  </div>
+                  <div className="file-info-para" >
+                  <p style={{ fontSize: "12px", color: "white",  }} className="file-info" >
+                    <span>📌</span>
+                    You can select multiple file types and receive the MCQs
+                    through email.
+                  </p>
+                  </div>
+                </>
+              )}
+
               <div className="btn-wrapper">
                 <button
                   className="generate-mcq-btn"
@@ -157,6 +241,7 @@ const MCQ = () => {
                     topic={response.topic}
                     mcqNumber={response.mcqNumber}
                     response={response.response}
+                    selectedFileType={response.fileTypes}
                     updateResponse={(newResponse) =>
                       updateResponse(index, newResponse)
                     }
@@ -175,7 +260,7 @@ const MCQ = () => {
                       textAlign: "center",
                     }}
                   >
-                    For more than 30 MCQs, you can receive the details via email
+                    For more than 30 MCQs, you can receive the details through email
                     with downloadable PDFs.
                   </p>
                 </div>
