@@ -99,7 +99,7 @@ const ProjectGeneration = ({
               <hr />
             </div>
           </>
-        ) : (
+        ) : ( 
           <>
             <img src={assets.NG_logo} alt="React Logo" />
             {numProjects > 3 ? (
