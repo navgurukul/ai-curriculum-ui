@@ -1,4 +1,4 @@
-Project Overview
+#Project Overview
 This project aims to provide an interactive platform for generating multiple-choice questions (MCQs) and project ideas, displaying them on the user interface, and managing user interactions such as login, logout, and quick suggestions. Additionally, it includes features for sending email notifications based on certain conditions and maintaining a history of generated projects.
 
 Features Implemented
