@@ -103,7 +103,7 @@ const ProjectGeneration = ({
           <>
             <img src={assets.NG_logo} alt="React Logo" />
             {numProjects > 3 ? (
-              <p>You will receive the projects via email shortly.</p>
+              <p>You will receive the projects through email shortly.</p>
             ) : (
               <p dangerouslySetInnerHTML={{ __html: resultData }}></p>
             )}

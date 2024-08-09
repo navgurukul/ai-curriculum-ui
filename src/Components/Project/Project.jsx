@@ -264,7 +264,7 @@ const Project = () => {
                     }}
                   >
                     For more than three projects, you can receive the project
-                    details via email with downloadable PDFs.
+                    details through email with downloadable PDFs.
                   </p>
                 </div>
               )}
