@@ -10,6 +10,7 @@ import LoginPage from "./Pages/LoginPage/LoginPage";
 import PrivateRoute from "./PrivateRoutes/PrivateRoutes"
 import Project from "./Components/Project/Project";
 import MCQ from "./Components/MCQ/MCQ"
+import ErrorPage from "./Pages/ErrorPage/ErrorPage";
 
 const App = () => {
   const location = useLocation();
@@ -20,12 +21,10 @@ const App = () => {
       {showSidebar && <Sidebar />}
       <div className={`main-content ${showSidebar ? 'with-sidebar' : ''}`}>
         <Routes>
+          <Route path="*" element={<ErrorPage />} />
           <Route path="/" element={<LoginPage />} />
-          <Route path="/mcq" element={<PrivateRoute element={MCQ} />} />
-          {/* <Route path="/main" element={<PrivateRoute element={Main} />} />*/}
-          <Route path="/project" element={<PrivateRoute element={Project} />} /> 
-          {/* <Route path="/mcq" element={<PrivateRoute element={MCQ} />} /> */}
-          {/* <Route path="/Experi" element={<PrivateRoute element={Experi} />} /> */}
+          <Route path="/mcq" element={<PrivateRoute element={MCQ} />} /> 
+          <Route path="/project" element={<PrivateRoute element={Project} />} />  
         </Routes>
       </div>
     </div>

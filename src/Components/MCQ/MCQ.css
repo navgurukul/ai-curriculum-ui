@@ -9,8 +9,9 @@
 
 .main-container-experi {
   /* border: 5px solid red; */
-  width: 100vw;
+  /* width: 100vw; */
   display: flex;
+  /* height: 100%; */
 }
 
 .input-feed {
@@ -137,10 +138,11 @@
 .result {
   /* border: 5px solid yellow; */
   /* border-left: 0.5px solid grey; */
-  height: 85vh;
+  height: 90vh;
   overflow-y: scroll;
   padding: 1% 5%;
-  margin-bottom: 5.5%;
+  padding-bottom: 2%;
+  /* margin-bottom: 5.5%; */
 }
 
 @keyframes loader {
