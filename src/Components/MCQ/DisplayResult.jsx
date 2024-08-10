@@ -41,11 +41,8 @@ const DisplayResult = ({
     const payload = {
       topic,
       numQuestions: mcqNumber,
-      // fileTypes: [selectedFileType],  
       fileTypes: mcqNumber > 30 ? selectedFileType : [],
     };
-    console.log(payload);
-    // return
     const token = localStorage.getItem("token");
 
     try {
@@ -77,10 +74,8 @@ const DisplayResult = ({
       );
       formattedResponse = formattedResponse.replace(/\n\n/g, "<br/><br/>");
 
-      // Ensuring each option is on a new line
       formattedResponse = formattedResponse.replace(/\n/g, "<br/>");
 
-      // Wrapping code blocks in a black box
       formattedResponse = formattedResponse.replace(
         /```([^`]+)```/g,
         '<div class="code-block">$1</div>'

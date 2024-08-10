@@ -189,12 +189,15 @@ const MCQ = () => {
                       <span style={{ margin: "0px" }}>JSON</span>
                     </div>
                   </div>
-                  <div className="file-info-para" >
-                  <p style={{ fontSize: "12px", color: "white",  }} className="file-info" >
-                    <span>📌</span>
-                    You can select multiple file types and receive the MCQs
-                    through email.
-                  </p>
+                  <div className="file-info-para">
+                    <p
+                      style={{ fontSize: "12px", color: "white" }}
+                      className="file-info"
+                    >
+                      <span>📌</span>
+                      You can select multiple file types and receive the MCQs
+                      through email.
+                    </p>
                   </div>
                 </>
               )}
@@ -260,8 +263,8 @@ const MCQ = () => {
                       textAlign: "center",
                     }}
                   >
-                    For more than 30 MCQs, you can receive the details through email
-                    with downloadable PDFs.
+                    For more than 30 MCQs, you can receive the details through
+                    email with downloadable PDFs.
                   </p>
                 </div>
               )}
@@ -273,7 +276,7 @@ const MCQ = () => {
 
       {isModalOpen && (
         <Modal onClose={() => setIsModalOpen(false)}>
-          <h2>Request MCQs via Email</h2>
+          <h2>Request MCQs through Email</h2>
           <br />
           <br />
           <p>You will receive the MCQs in your email - {email} shortly.</p>

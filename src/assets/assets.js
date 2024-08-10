@@ -23,6 +23,7 @@ import HTMLLogo from "./HTML.webp"
 import ExpressLogo from "./EXPRESS.webp"
 import NodeLogo from "./NODE.webp"
 import CustomLogo from "./customTopic.webp"
+import ErrorPage from "./errorPage.png"
 // ==============================
 import ReactSmallIcon from "./reactSmallIcon.webp"
 import MongoSmallIcon from "./MongoDBLogo.webp"
@@ -31,7 +32,7 @@ import VueSmallIcon from "./VueSmallLogo.webp"
 import NGAI from './NG-AI.webp'
 
 export const assets = {
-    history_icon,ReactLogo,AngularLogo,CustomLogo,
+    history_icon,ReactLogo,AngularLogo,CustomLogo,ErrorPage,
     menu_icon,MongoLogo,VueLogo,HTMLLogo,ExpressLogo,NodeLogo,
     plus_icon,
     question_icon,
