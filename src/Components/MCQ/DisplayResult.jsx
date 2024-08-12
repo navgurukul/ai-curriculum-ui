@@ -9,7 +9,8 @@ const DisplayResult = ({
   response,
   selectedFileType,
   apistopRef,
-  updateResponse, 
+  updateResponse,
+  setNextRequest,
 }) => {
   const [loading, setLoading] = useState(false);
   const [resultData, setResultData] = useState(response || "");
@@ -55,7 +56,10 @@ const DisplayResult = ({
           },
         }
       );
-
+       
+      if (response.status === 200) { 
+        setNextRequest(true);
+      }
       const mcqOutput = response.data.data.mcq_output;
       let responseArray = mcqOutput.split("**");
       let newResponse = "";

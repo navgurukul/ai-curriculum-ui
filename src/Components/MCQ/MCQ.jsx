@@ -27,6 +27,7 @@ const MCQ = () => {
   const [mcqNumber, setMcqNumber] = useState("");
   const [responses, setResponses] = useState([]);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [nextRequest, setNextRequest] = useState(true);
   const [email, setEmail] = useState("");
   // const [selectedFileType, setSelectedFileType] = useState(fileTypes[0]);
   const [selectedFileTypes, setSelectedFileTypes] = useState([]);
@@ -41,7 +42,7 @@ const MCQ = () => {
     if (auth && auth.email) {
       setEmail(auth.email);
     }
-  }, []);
+  }, [nextRequest]);
 
   const handleCardClick = (techName) => {
     setTopic(techName);
@@ -49,6 +50,7 @@ const MCQ = () => {
   };
 
   const handleGenerateMCQ = () => {
+    setNextRequest(false);
     if (topic.length <= 1) {
       toast.error(
         "Please enter a valid topic name or select one from the suggestion box."
@@ -60,11 +62,7 @@ const MCQ = () => {
       return;
     }
     if (!topic || !mcqNumber) {
-      toast.error("Please enter both  a topic and the number of questions");
-      return;
-    }
-    if (!topic) {
-      toast.error("Please enter topic name.");
+      toast.error("Please enter both a topic and the number of questions");
       return;
     }
     if (mcqNumber > 500) {
@@ -206,8 +204,9 @@ const MCQ = () => {
                 <button
                   className="generate-mcq-btn"
                   onClick={handleGenerateMCQ}
+                  disabled={!nextRequest}
                 >
-                  Generate MCQ
+                  { nextRequest ? "Generate MCQ" : "Please wait..." } 
                 </button>
               </div>
             </div>
@@ -249,6 +248,7 @@ const MCQ = () => {
                       updateResponse(index, newResponse)
                     }
                     apistopRef={apistopRef}
+                    setNextRequest={setNextRequest}
                   />
                 ))
               ) : (
