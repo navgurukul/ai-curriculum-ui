@@ -29,12 +29,13 @@ import ReactSmallIcon from "./reactSmallIcon.webp"
 import MongoSmallIcon from "./MongoDBLogo.webp"
 import ExpressSmallIcon from "./ExpressSmallLogo.webp"
 import VueSmallIcon from "./VueSmallLogo.webp"
+import JavascriptLogoOri from "./JavaScript-logo.png"
 import NGAI from './NG-AI.webp'
 
 export const assets = {
     history_icon,ReactLogo,AngularLogo,CustomLogo,ErrorPage,
     menu_icon,MongoLogo,VueLogo,HTMLLogo,ExpressLogo,NodeLogo,
-    plus_icon,
+    plus_icon,JavascriptLogoOri,
     question_icon,
     setting_icon,
     bulb_icon,

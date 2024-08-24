@@ -21,6 +21,7 @@ const techLogos = [
   { logo: assets.HTMLLogo, name: "Java" },
   { logo: assets.VueLogo, name: "Django" },
   { logo: assets.VueLogo, name: "C++" },
+  { logo: assets.JavascriptLogoOri, name: "Javascript" },
 ];
 
 const getLogoForTopic = (topic) => {
@@ -55,7 +56,7 @@ const Project = () => {
       toast.error("Topic name should not be a number.");
       return;
     }
-    if (topic.length < 1  ) {
+    if (topic.length < 1) {
       toast.error("Please enter topic name or select from suggestion box.");
       return;
     }
@@ -65,10 +66,10 @@ const Project = () => {
     }
     if (numProjects > 7) {
       toast.error("We can currently generate up to 7 projects for you.");
-      setNumProjects(7)
+      setNumProjects(7);
       return;
     }
-    if (numProjects > 3 && numProjects <= 7 ) {
+    if (numProjects > 3 && numProjects <= 7) {
       setIsModalOpen(true);
     }
     setProjectData((prevData) => [
@@ -158,14 +159,25 @@ const Project = () => {
         <div className="project-content">
           <div className="form-detail">
             <div className="input-topic-wrapper">
-              <label htmlFor="topic">Topic:</label>
+              {/* <label htmlFor="topic">Topic:</label>
               <input
                 type="text"
                 id="topic"
                 value={topic}
                 placeholder="Ex. React"
                 onChange={(e) => setTopic(e.target.value)}
-              />
+              /> */}
+              <label htmlFor="topic">Topic:</label>
+              <select
+                id="topic"
+                value={topic}
+                onChange={(e) => setTopic(e.target.value)}
+              >
+                <option value="">Select a topic</option>
+                <option value="React">React</option>
+                <option value="Html">HTML & CSS</option>
+                <option value="JavaScript">JavaScript</option>
+              </select>
             </div>
             <div className="project-num-wrapper">
               <label htmlFor="numProjects">Number of Projects:</label>
@@ -207,15 +219,19 @@ const Project = () => {
                       key={index}
                       onClick={() => handleProjectClick(project)}
                     >
-                      <div className="image-container" >
+                      <div className="image-container">
                         <img
                           src={getLogoForTopic(project.topic)}
-                          alt={project.topic}
-                          style={{   }}
+                          alt={project.topic} 
                         />
                       </div>
-                      <div className="topic-text" >
-                        <h5 className="project-topic" style={{textDecoration:"none", }} >{project.topic} project</h5>
+                      <div className="topic-text">
+                        <p
+                          className="project-topic" 
+                        >
+                          {project.topic.charAt(0).toUpperCase() +
+                            project.topic.slice(1)}
+                        </p>
                         {/* <p className="project-date">
                           {new Date(project.created_at).toLocaleString()}
                         </p> */}
