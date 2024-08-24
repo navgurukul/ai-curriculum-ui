@@ -19,9 +19,14 @@
   /* border: 1px solid red; */
 }
 
+.input-topic-wrapper select {
+  /* width: 47.2%; */
+}
+
 .input-topic-wrapper input,
-.project-num-wrapper input {
-  /* width: 50%; */
+.project-num-wrapper input,
+.input-topic-wrapper select {
+  width: 50%;
   outline: none;
   border: 0.5px solid grey;
   border-radius: 3px;
@@ -106,7 +111,7 @@
 .history-section {
   width: 100%;
   text-align: center;
-  text-decoration: underline;
+  text-decoration: none;
 }
 
 .history-section h3 {
@@ -149,9 +154,12 @@
   height: var(--img-height-small-card);
 }
 
-.topic-text h5{
+.topic-text h5 {
   text-decoration: none !important;
+}
 
+.project-topic{
+  font-size: 13px;
 }
 
 .generate-proj-btn {
@@ -208,7 +216,7 @@
     padding: 0px 5%;
   }
   .project-entry {
-width: 120px;
+    width: 120px;
   }
 }
 
