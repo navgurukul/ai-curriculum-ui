@@ -167,6 +167,28 @@
   text-align: center;
 }
 
+.modal-content{
+  /* border: 1px solid red; */
+  height: 250px;
+  overflow-y: scroll;
+}
+
+.project-pdf-details h5 {
+  font-size: 16px;
+  margin-bottom: 8px;
+}
+
+.project-pdf-details p {
+  font-size: 14px;
+  margin-bottom: 8px;
+}
+
+.project-pdf-details hr {
+  margin-top: 16px;
+  margin-bottom: 16px;
+}
+
+
 .generate-proj-btn button {
   width: 150px;
   background-color: var(--transparent-button);
