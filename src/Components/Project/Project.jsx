@@ -226,9 +226,7 @@ const Project = () => {
                         />
                       </div>
                       <div className="topic-text">
-                        <p
-                          className="project-topic" 
-                        >
+                        <p className="project-topic">
                           {project.topic.charAt(0).toUpperCase() +
                             project.topic.slice(1)}
                         </p>
@@ -287,25 +285,32 @@ const Project = () => {
             </div>
           </div>
         </div>
+        
         {modalOpen && (
           <Modal onClose={closeModal}>
             <div className="modal-content">
               {loadingModalInfo ? (
-                <p>Loading data...</p>
+                <p>Fetching data...</p>
               ) : (
                 selectedProject && (
                   <>
                     <h2>Project Details</h2>
                     <br />
-                    <h5>{selectedProject.project_pdf[0].title}</h5>
-                    <a
-                      className="proj-pdf"
-                      href={selectedProject.project_pdf[0].url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      View Project Details
-                    </a>
+                    {selectedProject.project_pdf.map((pdf, index) => (
+                      <div key={index} className="project-pdf-details">
+                        <h5>{pdf.title}</h5>
+                        <p>{pdf.description}</p>
+                        <a
+                          className="proj-pdf"
+                          href={pdf.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          View Project Details
+                        </a>
+                        <hr />
+                      </div>
+                    ))}
                   </>
                 )
               )}
@@ -317,7 +322,7 @@ const Project = () => {
 
       {isModalOpen && (
         <Modal onClose={() => setIsModalOpen(false)}>
-          <h2>Request Projects via Email</h2>
+          <h2>Request Projects through Email</h2>
           <br />
           <br />
           <p>You will receive the Projects in your email - {email} shortly.</p>
