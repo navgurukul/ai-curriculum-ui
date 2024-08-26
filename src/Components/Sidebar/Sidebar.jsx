@@ -1,86 +1,46 @@
 import "./Sidebar.css";
-import { assets } from "../../assets/assets";
-import { useContext, useState, useEffect } from "react";
-// import { Context } from "../../context/Context"; 
+import { useEffect, useState } from "react";
 import axios from "axios";
-import Modal from "../ReuseableCompo/Modal/Modal";
-// import DoubleArrowIcon from "@mui/icons-material/DoubleArrow";
-// import AddIcon from "@mui/icons-material/Add";
-// import QuestionMarkIcon from "@mui/icons-material/QuestionMark";
-// import AccessTimeIcon from "@mui/icons-material/AccessTime";
-// import SettingsIcon from "@mui/icons-material/Settings";
+import { assets } from "../../assets/assets";
+import { useNavigate } from "react-router-dom";
 
+const techLogos = [
+  { logo: assets.ReactLogo, name: "React" },
+  { logo: assets.AngularLogo, name: "Angular" },
+  { logo: assets.VueLogo, name: "Vue" },
+  { logo: assets.HTMLLogo, name: "HTML" },
+  { logo: assets.ExpressLogo, name: "Express" },
+  { logo: assets.NodeLogo, name: "Node" },
+  { logo: assets.MongoLogo, name: "MongoDB" },
+  { logo: assets.CustomLogo, name: "Postgre" },
+  { logo: assets.ReactLogo, name: "Python" },
+  { logo: assets.HTMLLogo, name: "Java" },
+  { logo: assets.VueLogo, name: "Django" },
+  { logo: assets.VueLogo, name: "C++" },
+];
 const Sidebar = () => {
-  const [extended, setExtended] = useState(false);
-//   const { onSent, prevPrompts, setRecemtPrompt, newChat } = useContext(Context);
   const [topics, setTopics] = useState([]);
-  const [projects, setProjects] = useState([]);
-  const [selectedProject, setSelectedProject] = useState(null);
-  const [modalOpen, setModalOpen] = useState(false);
-  const [loading, setLoading] = useState(false);
+  const [selectedTopicId, setSelectedTopicId] = useState(null);
+  const [showSuggestion, setShowSuggestion] = useState(true);
+  const [history, setHistory] = useState([]);
+  const [userInfo, setUserInfo] = useState({
+    name: "",
+    email: "",
+    profile_picture: "",
+  });
 
-//   const loadPrompt = async (prompt) => {
-//     setRecemtPrompt(prompt);
-//     await onSent(prompt);
-//   };
+  const navigate = useNavigate();
 
-  // useEffect(() => {
-  //   const fetchHistory = async () => {
-  //     try {
-  //       const token = localStorage.getItem("token");
-  //       const response = await axios.get(
-  //         "https://mcq-curriculum-ai.navgurukul.org/mcq/getHistory",
-  //         {
-  //           headers: {
-  //             Authorization: `Bearer ${token}`,
-  //           },
-  //         }
-  //       );
+  const handleTopicClick = (id) => {
+    setSelectedTopicId(id);
+    navigate(`/mcqHistory/${id}`);
+  };
 
-  //       if (response.data.status === "success") {
-  //         const historyData = response.data.data.userHistoryData.history;
-  //         const uniqueTopics = [
-  //           ...new Set(historyData.map((item) => item.topic)),
-  //         ];
-  //         setTopics(uniqueTopics);
-  //       }
-  //     } catch (error) {
-  //       console.error("Error fetching history:", error);
-  //     }
-  //   };
-
-  //   const fetchProjects = async () => {
-  //     try {
-  //       const token = localStorage.getItem("token");
-  //       const response = await axios.get(
-  //         "https://mcq-curriculum-ai.navgurukul.org/project/getHistory",
-  //         {
-  //           headers: {
-  //             Authorization: `Bearer ${token}`,
-  //           },
-  //         }
-  //       );
-
-  //       if (response.data.status === "success") {
-  //         const projectData = response.data.data.userHistoryData.history;
-  //         setProjects(projectData);
-  //       }
-  //     } catch (error) {
-  //       console.error("Error fetching projects:", error);
-  //     }
-  //   };
-
-  //   fetchHistory();
-  //   fetchProjects();
-  // }, []);
-
-  const handleProjectClick = async (project) => {
-    setModalOpen(true);
-    setLoading(true);
+  const fetchHistory = async () => {
     try {
       const token = localStorage.getItem("token");
       const response = await axios.get(
-        `https://mcq-curriculum-ai.navgurukul.org/project/detailedHistory?question_id=${project._id}`,
+        "https://mcq-curriculum-ai.navgurukul.org/mcq/getHistory",
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -89,122 +49,105 @@ const Sidebar = () => {
       );
 
       if (response.data.status === "success") {
-        setSelectedProject(response.data.data);
+        const historyData = response.data.data.userHistoryData.history;
+        setHistory(historyData); // Store the fetched history data in the state
+        const uniqueTopics = [
+          ...new Set(historyData.map((item) => item.topic)),
+        ];
+        setTopics(uniqueTopics);
       }
     } catch (error) {
-      console.error("Error fetching project details:", error);
+      console.error("Error fetching history:", error);
     }
-    setLoading(false);
   };
+  const authData = JSON.parse(localStorage.getItem("AUTH"));
+  useEffect(() => {
+    const authData = JSON.parse(localStorage.getItem("AUTH"));
 
-  const closeModal = () => {
-    setModalOpen(false);
-    setSelectedProject(null);
+    if (authData) {
+      const { name, email, profile_picture } = authData;
+      console.log(authData);
+      setUserInfo({ name, email, profile_picture });
+    }
+    fetchHistory();
+  }, []);
+
+  const handleShowSuggestions = () => {
+    setShowSuggestion(!showSuggestion);
   };
 
   return (
-    <div className={`sidebar ${extended ? "extended" : ""} sidebar-wrapper`}>
-      <div className="top">
-        {/* <img
-          src={assets.menu_icon}
-          alt=""
-          className="menu"
-          onClick={() => setExtended((prev) => !prev)}
-        /> */}
-        {/* <DoubleArrowIcon /> */}
-        <div className="new-chat" onClick={() => newChat()}>
-          {/* <img src={assets.plus_icon} alt="" />
-          {extended ? <p>New Chat</p> : null} */}
-          {/* <AddIcon /> */}
-        </div>
+    <div id="nav-bar" style={{ border: "0.1px solid lightgrey" }}>
+      <input type="checkbox" id="nav-toggle" />
 
-        {extended ? (
-          <div className="recent">
-            <p className="recent-title">Recent</p>
-            {prevPrompts.map((item, index) => {
-              return (
+      <div id="nav-header">
+        <span>MCQs History</span>
+        <label htmlFor="nav-toggle" onClick={handleShowSuggestions}>
+          <span id="nav-toggle-burger"></span>
+        </label>
+        <hr />
+      </div>
+      {showSuggestion && (
+        <div id="nav-content">
+          {history.map((item, index) => (
+            <div className="nav-button" key={index}>
+              {/* <p onClick={() => handleTopicClick(item._id)}>{item.topic}</p> */}
+              <p
+                onClick={() => handleTopicClick(item._id)}
+                style={{
+                  cursor: "pointer",
+                  color: selectedTopicId === item._id ? "orange" : "",
+                  width:"max-content"
+                }}
+              > {item.topic}</p>
+              <span className="projectDate">
+                Created on - {new Date(item.created_at).toLocaleString()}
+              </span>
+            </div>
+          ))}
+
+          <div className="suggestion-box-sb  ">
+            <h5>Quick Suggestion </h5>
+
+            <div className="min-box-wrapper-sb">
+              {techLogos.map((tech, index) => (
                 <div
-                  className="recent-entry"
                   key={index}
-                  onClick={() => loadPrompt(item)}
+                  className="single-box-sb"
+                  // onClick={() => handleCardClick(tech.name)}
                 >
-                  <img src={assets.message_icon} alt="" />
-                  <p>{item.slice(0, 18)}...</p>
-                </div>
-              );
-            })}
-          </div>
-        ) : null}
-
-        {extended ? (
-          <div className="topics">
-            <p className="topics-title">Topics</p>
-            {topics.map((topic, index) => (
-              <div className="topic-entry" key={index}>
-                <p>{topic}</p>
-              </div>
-            ))}
-          </div>
-        ) : null}
-
-        {extended ? (
-          <div className="previous-projects">
-            <p className="projects-title">Previous Projects</p>
-            <div className="projects-list">
-              {projects.map((project, index) => (
-                <div
-                  className="project-entry"
-                  key={index}
-                  onClick={() => handleProjectClick(project)}
-                >
-                  <p className="project-topic">{project.topic}</p>
+                  <img
+                    src={tech.logo}
+                    alt={tech.name}
+                    className="smallCard-logo-sb"
+                  />
+                  <p>{tech.name}</p>
                 </div>
               ))}
             </div>
           </div>
-        ) : null}
-      </div>
-      <div className="bottom">
-        <div className="bottom-item recent-entry">
-          {/* <img src={assets.question_icon} alt="" /> */}
-          {/* <QuestionMarkIcon  style={{marginRight:"25px",  }} /> */}
-          {extended ? <p>Help</p> : null}
         </div>
-        <div className="bottom-item recent-entry">
-          {/* <img src={assets.history_icon} alt="" /> */}
-          {/* <AccessTimeIcon /> */}
-          {extended ? <p>Activity</p> : null}
-        </div>
-        <div className="bottom-item recent-entry">
-          {/* <SettingsIcon /> */}
-          {/* <img src={assets.setting_icon} alt="" /> */}
-          {extended ? <p>Settings</p> : null}
-        </div>
-      </div>
-      {modalOpen && (
-        <Modal onClose={closeModal}>
-          <div className="modal-content">
-            {loading ? (
-              <p>Loading data...</p>
-            ) : (
-              selectedProject && (
-                <>
-                  <h2>Project Details</h2>
-                  <br />
-                  <h5>{selectedProject.project_pdf[0].title}</h5>
-                  <a
-                    style={{ fontSize: "12px" }}
-                    href={selectedProject.project_pdf[0].url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    {selectedProject.project_pdf[0].url}
-                  </a>
-                </>
-              )
-            )}
+      )}
+
+      {showSuggestion && (
+        <div id="nav-footer">
+          <div id="nav-footer-heading">
+            <div id="nav-footer-avatar">
+              <img src={authData?.profile_picture} alt="profile_picture" />
+            </div>
+            <div id="nav-footer-titlebox">
+              <p id="nav-footer-title">{userInfo.name}</p>
+            </div>
+            <label htmlFor="nav-footer-toggle">
+              <i className="fas fa-caret-up"></i>
+            </label>
           </div>
-        </Modal>
+
+          {/* <div id="nav-footer-content">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        </div> */}
+        </div>
       )}
     </div>
   );

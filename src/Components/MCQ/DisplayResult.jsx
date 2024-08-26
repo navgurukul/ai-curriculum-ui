@@ -37,8 +37,9 @@ const DisplayResult = ({
   };
 
   const fetchData = async () => {
+    setNextRequest(false);
     setLoading(true);
-    setRecentPrompt(`Generate ${mcqNumber} MCQ questions on ${topic}`);
+    setRecentPrompt(`Generate ${mcqNumber} MCQs questions on ${topic}`);
     const payload = {
       topic,
       numQuestions: mcqNumber,
@@ -56,10 +57,9 @@ const DisplayResult = ({
           },
         }
       );
-       
-      if (response.status === 200) { 
-        setNextRequest(true);
-      }
+      // if (response.status === 200) {
+      //   setNextRequest(true);
+      // }
       const mcqOutput = response.data.data.mcq_output;
       let responseArray = mcqOutput.split("**");
       let newResponse = "";
@@ -97,13 +97,13 @@ const DisplayResult = ({
       setResultData("An error occurred while fetching data.");
       updateResponse("An error occurred while fetching data.");
     } finally {
+      setNextRequest(true);
       setLoading(false);
     }
   };
 
   const auth = JSON.parse(localStorage.getItem("AUTH"));
   const profilePicture = auth?.profile_picture || assets.Student;
-   
 
   return (
     <>
@@ -127,7 +127,10 @@ const DisplayResult = ({
             {mcqNumber > 30 ? (
               <p>You will receive the MCQs through email shortly.</p>
             ) : (
-              <p dangerouslySetInnerHTML={{ __html: resultData }}></p>
+              <p
+                dangerouslySetInnerHTML={{ __html: resultData }}
+                className="received-info"
+              ></p>
             )}
           </>
         )}

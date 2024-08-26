@@ -1,0 +1,32 @@
+.mcqHistory-wrapper {
+  /* border: 2px solid red; */
+
+  width: 50vw;
+  height: 100vh;
+  /* height: calc(100vh-65px); */
+  overflow-y: scroll;
+  margin-left: 500px;
+  p {
+    background-color: var(--grey-bg-color);
+  }
+  b span div {
+    background-color: var(--grey-bg-color);
+  }
+}
+
+.mcq-output {
+  h3 {
+    text-align: center;
+    margin-bottom: 20px;
+    background-color: var(--grey-bg-color);
+  }
+}
+
+.mcq-output {
+  margin: 0px 20px;
+  margin-top: 80px;
+  padding: 20px 50px;
+  /* border: 2px solid blue; */
+  background-color: var(--grey-bg-color);
+  border-radius: var(--border-radius-3);
+}

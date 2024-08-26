@@ -11,6 +11,7 @@ import PrivateRoute from "./PrivateRoutes/PrivateRoutes"
 import Project from "./Components/Project/Project";
 import MCQ from "./Components/MCQ/MCQ"
 import ErrorPage from "./Pages/ErrorPage/ErrorPage";
+import MCQHistory from "./Components/MCQHistory/MCQHistory";
 
 const App = () => {
   const location = useLocation();
@@ -24,7 +25,8 @@ const App = () => {
           <Route path="*" element={<ErrorPage />} />
           <Route path="/" element={<LoginPage />} />
           <Route path="/mcq" element={<PrivateRoute element={MCQ} />} /> 
-          <Route path="/project" element={<PrivateRoute element={Project} />} />  
+          <Route path="/project" element={<PrivateRoute element={Project} />} />
+          <Route path="/mcqHistory/:id" element={<PrivateRoute element={MCQHistory} />} />  
         </Routes>
       </div>
     </div>

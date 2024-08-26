@@ -9,14 +9,19 @@
     width: 100%;
 }
 
+.nav .curriculum-text{ 
+  color: #e77f53;
+}
+
 .nav-options span{
     margin: 25px 15px;
     font-size: 14px;
 }
 
 .nav-options span.active {
-    text-underline-offset: 5px;
+    text-underline-offset: 15px;
     text-decoration: underline;
+    text-decoration-color: var(--transparent-button);
   }
   
 
