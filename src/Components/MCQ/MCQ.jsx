@@ -50,7 +50,7 @@ const MCQ = () => {
   };
 
   const handleGenerateMCQ = () => {
-    setNextRequest(false);
+    // setNextRequest(false);
     if (topic.length <= 1) {
       toast.error(
         "Please enter a valid topic name or select one from the suggestion box."
@@ -114,55 +114,71 @@ const MCQ = () => {
       <div className="outer-wrapper">
         <Navbar />
         <div className="main-container-experi">
-          <div className="input-feed">
-            <div className="input-field-wrapper">
-              <div className="topic-name">
-                <label htmlFor="text">Topic</label>
-                <input
-                  type="text"
-                  placeholder="Ex. React"
-                  value={topic}
-                  onChange={(e) => setTopic(e.target.value)}
-                />
-              </div>
-              <div className="mcq-feed">
-                <label htmlFor="number">MCQs</label>
-                <input
-                  type="number"
-                  value={mcqNumber}
-                  placeholder="Enter number of MCQ"
-                  onChange={(e) => setMcqNumber(e.target.value)}
-                />
-              </div>
-              {/* {mcqNumber > 30 && (
-                <div className="file-type-select">
-                  <label htmlFor="fileType">File Type</label>
-                  <select
-                    id="fileType"
-                    value={selectedFileType}
-                    onChange={(e) => setSelectedFileType(e.target.value)}
-                    ///disabled={mcqNumber < 30}
+          <div className="display-result">
+            <div className="result">
+              {responses.length > 0 ? (
+                responses.map((response, index) => (
+                  <DisplayResult
+                    key={index}
+                    topic={response.topic}
+                    mcqNumber={response.mcqNumber}
+                    response={response.response}
+                    selectedFileType={response.fileTypes}
+                    updateResponse={(newResponse) =>
+                      updateResponse(index, newResponse)
+                    }
+                    apistopRef={apistopRef}
+                    setNextRequest={setNextRequest}
+                  />
+                ))
+              ) : (
+                <div>
+                  <h2 style={{ textAlign: "center", margin: "10px" }}>
+                    Generate MCQs For Your Desired Topic
+                  </h2>
+                  <p
                     style={{
-                      borderColor: mcqNumber > 30 ? "green" : "",
+                      color: "white",
+                      fontSize: "11px",
+                      textAlign: "center",
                     }}
                   >
-                    {fileTypes.map((type) => (
-                      <option key={type} value={type}>
-                        {type.toUpperCase()}
-                      </option>
-                    ))}
-                  </select>
+                    For more than 30 MCQs, you can receive the details through
+                    email with downloadable PDFs
+                  </p>
+                  <div className="suggestion-box">
+                    <h3>Quick Suggestion </h3>
+
+                    <div className="min-box-wrapper">
+                      {techLogos.map((tech, index) => (
+                        <div
+                          key={index}
+                          className="single-box"
+                          onClick={() => handleCardClick(tech.name)}
+                        >
+                          <img
+                            src={tech.logo}
+                            alt={tech.name}
+                            className="smallCard-logo"
+                          />
+                          <h5>{tech.name}</h5>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
                 </div>
-              )} */}
-              {mcqNumber > 30 && (
-                <>
+              )}
+            </div>
+            <div className="input-feed">
+            {mcqNumber > 30 && (
+                <div className="file-type-wrapper">
                   <div className="file-type">
                     <label>File Type </label>
                     <div
-                      style={{
-                        display: "flex",
-                        alignItems: "center",
-                      }}
+                    // style={{
+                    //   display: "flex",
+                    //   alignItems: "center",
+                    // }}
                     >
                       <input
                         type="checkbox"
@@ -197,77 +213,60 @@ const MCQ = () => {
                       through email.
                     </p>
                   </div>
-                </>
-              )}
-
-              <div className="btn-wrapper">
-                <button
-                  className="generate-mcq-btn"
-                  onClick={handleGenerateMCQ}
-                  disabled={!nextRequest}
-                >
-                  { nextRequest ? "Generate MCQ" : "Please wait..." } 
-                </button>
-              </div>
-            </div>
-            <hr className="hr-line" />
-
-            <div className="suggestion-box">
-              <h3>Quick Suggestion </h3>
-
-              <div className="min-box-wrapper">
-                {techLogos.map((tech, index) => (
-                  <div
-                    key={index}
-                    className="single-box"
-                    onClick={() => handleCardClick(tech.name)}
-                  >
-                    <img
-                      src={tech.logo}
-                      alt={tech.name}
-                      className="smallCard-logo"
-                    />
-                    <h5>{tech.name}</h5>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-          <div className="display-result">
-            <div className="result">
-            
-              {responses.length > 0 ? (
-                responses.map((response, index) => (
-                  <DisplayResult
-                    key={index}
-                    topic={response.topic}
-                    mcqNumber={response.mcqNumber}
-                    response={response.response}
-                    selectedFileType={response.fileTypes}
-                    updateResponse={(newResponse) =>
-                      updateResponse(index, newResponse)
-                    }
-                    apistopRef={apistopRef}
-                    setNextRequest={setNextRequest}
-                  />
-                ))
-              ) : (
-                <div>
-                  <h2 style={{ textAlign: "center", margin: "10px" }}>
-                    Enter topic name for generating MCQ
-                  </h2>
-                  <p
-                    style={{
-                      color: "white",
-                      fontSize: "11px",
-                      textAlign: "center",
-                    }}
-                  >
-                    For more than 30 MCQs, you can receive the details through
-                    email with downloadable PDFs.
-                  </p>
                 </div>
               )}
+              <div className="input-field-wrapper">
+                <div className="topic-name">
+                  <label htmlFor="text">Topic</label>
+                  <input
+                    type="text"
+                    placeholder="Ex. React"
+                    value={topic}
+                    onChange={(e) => setTopic(e.target.value)}
+                  />
+                </div>
+                <div className="mcq-feed">
+                  <label htmlFor="number">MCQs</label>
+                  <input
+                    type="number"
+                    value={mcqNumber}
+                    placeholder="Enter number of MCQ"
+                    onChange={(e) => setMcqNumber(e.target.value)}
+                  />
+                </div>
+                {/* {mcqNumber > 30 && (
+                <div className="file-type-select">
+                  <label htmlFor="fileType">File Type</label>
+                  <select
+                    id="fileType"
+                    value={selectedFileType}
+                    onChange={(e) => setSelectedFileType(e.target.value)}
+                    ///disabled={mcqNumber < 30}
+                    style={{
+                      borderColor: mcqNumber > 30 ? "green" : "",
+                    }}
+                  >
+                    {fileTypes.map((type) => (
+                      <option key={type} value={type}>
+                        {type.toUpperCase()}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+              )} */}
+
+                <div className="btn-wrapper">
+                  <button
+                    className="generate-mcq-btn"
+                    onClick={handleGenerateMCQ}
+                    disabled={!nextRequest}
+                  >
+                    {nextRequest ? "Generate MCQs" : "Please wait..."}
+                  </button>
+                </div>
+              </div>
+              {/* <hr className="hr-line" /> */}
+             
             </div>
           </div>
         </div>
@@ -276,10 +275,10 @@ const MCQ = () => {
 
       {isModalOpen && (
         <Modal onClose={() => setIsModalOpen(false)}>
-          <h2>Request MCQs through Email</h2>
+          <h2 className="text-bg-grey" >Request MCQs through Email</h2>
           <br />
           <br />
-          <p>You will receive the MCQs in your email - {email} shortly.</p>
+          <p className="text-bg-grey">You will receive the MCQs in your email - {email} shortly.</p>
           <br />
           <br />
         </Modal>

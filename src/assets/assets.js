@@ -15,26 +15,25 @@ import send_icon from './send_icon.png'
 import gemini_icon from './gemini_icon.png'
 import NG_logo from './Nglogo.webp'
 import Student from "./Student.webp"
-import ReactLogo from "./reactlogo.webp" 
+import ReactLogo from "./reactlogo.png" 
 import AngularLogo from "./ANGULAR.webp"
 import MongoLogo from "./MONGO (2).webp"
 import VueLogo from "./VUEJS.webp"
-import HTMLLogo from "./HTML.webp"
+import HTMLLogo from "./HTML.png"
 import ExpressLogo from "./EXPRESS.webp"
 import NodeLogo from "./NODE.webp"
 import CustomLogo from "./customTopic.webp"
 import ErrorPage from "./errorPage.png"
 // ==============================
 import ReactSmallIcon from "./reactSmallIcon.webp"
-import MongoSmallIcon from "./MongoDBLogo.webp"
-import ExpressSmallIcon from "./ExpressSmallLogo.webp"
-import VueSmallIcon from "./VueSmallLogo.webp"
+// import MongoSmallIcon from "./MongoDBLogo.webp"  
 import JavascriptLogoOri from "./JavaScript-logo.png"
 import NGAI from './NG-AI.webp'
+import sidebarLogo from "./sidebarLogo.png"
 
 export const assets = {
     history_icon,ReactLogo,AngularLogo,CustomLogo,ErrorPage,
-    menu_icon,MongoLogo,VueLogo,HTMLLogo,ExpressLogo,NodeLogo,
+    menu_icon,MongoLogo,VueLogo,HTMLLogo,ExpressLogo,NodeLogo,sidebarLogo,
     plus_icon,JavascriptLogoOri,
     question_icon,
     setting_icon,
@@ -48,5 +47,5 @@ export const assets = {
     code_icon,
     send_icon,
     gemini_icon,NG_logo,Student,NGAI,
-    ReactSmallIcon,MongoSmallIcon,ExpressSmallIcon,VueSmallIcon,
+    ReactSmallIcon,
 }

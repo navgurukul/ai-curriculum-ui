@@ -81,9 +81,9 @@ const LoginPage = () => {
       ) : (
         <div className="login-page-container">
           <header className="header">
-            <div>
-              <img src={assets.NGAI} className="logo" alt="logo" />
-            </div>
+            <div style={{visibility:"hidden"}} >
+              <img src={assets.NGAI} className="logo" alt="logo"  />
+            </div> 
             <div className="navigation">
               <a href="#product">Product</a>
               <a href="#features">Features</a>

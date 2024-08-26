@@ -17,15 +17,26 @@ const Navbar = () => {
 
   return (
     <div className="nav">
+      <div>
+        <h3 className="curriculum-text">
+          Curriculum <span>AI</span>{" "}
+        </h3>
+      </div>
       <div className="nav-options">
         <Link to="/mcq" style={{ textDecoration: "none" }}>
-          <span className={location.pathname === "/mcq" ? "active" : ""}>MCQ</span>
+          <span className={location.pathname === "/mcq" ? "active" : ""}>
+            MCQs
+          </span>
         </Link>
-        <Link to="/project" style={{ textDecoration: "none" }}>
-          <span className={location.pathname === "/project" ? "active" : ""}>PROJECT</span>
-        </Link>
+        {/* <Link to="/project" style={{ textDecoration: "none" }}>
+          <span className={location.pathname === "/project" ? "active" : ""}>
+            Projects
+          </span>
+        </Link> */}
         {/* <Link to={"/main"} style={{textDecoration:"none"}}><span>G-ni</span></Link> */}
-        {/* <Link to={"/Experi"} style={{textDecoration:"none"}}><span>Experi</span></Link> */}
+        {/* <Link to={"/experi"} style={{ textDecoration: "none" }}>
+          <span>Experi</span>
+        </Link>  */}
       </div>
       <div className="profile-section">
         <img

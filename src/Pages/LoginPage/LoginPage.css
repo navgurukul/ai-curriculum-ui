@@ -69,6 +69,7 @@
   }
   .login-button {
     color: var(--white-color) !important;
+    background-color: var(--transparent-button);
   }
 }
 
