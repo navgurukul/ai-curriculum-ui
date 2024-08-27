@@ -9,17 +9,17 @@ import "./MCQ.css";
 
 const techLogos = [
   { logo: assets.ReactLogo, name: "React" },
-  { logo: assets.AngularLogo, name: "Angular" },
+  { logo: assets.AngSmallLogoFigma, name: "Angular" },
   { logo: assets.VueLogo, name: "Vue" },
   { logo: assets.HTMLLogo, name: "HTML" },
   { logo: assets.ExpressLogo, name: "Express" },
-  { logo: assets.NodeLogo, name: "Node" },
-  { logo: assets.MongoLogo, name: "MongoDB" },
-  { logo: assets.CustomLogo, name: "Postgre" },
+  { logo: assets.NodeSmallLogoFigma, name: "Node" },
+  { logo: assets.MongoSmallLogoFigma, name: "MongoDB" },
+  { logo: assets.PostgreSmallLogoFigma, name: "Postgre" },
   { logo: assets.ReactLogo, name: "Python" },
   { logo: assets.HTMLLogo, name: "Java" },
   { logo: assets.VueLogo, name: "Django" },
-  { logo: assets.VueLogo, name: "C++" },
+  { logo: assets.CppSmallLogoFigma, name: "C++" },
 ];
 
 const MCQ = () => {
@@ -99,7 +99,6 @@ const MCQ = () => {
     );
   };
 
-
   const handleFileTypeChange = (e) => {
     const { value, checked } = e.target;
     setSelectedFileTypes((prevSelected) =>
@@ -161,7 +160,7 @@ const MCQ = () => {
                             alt={tech.name}
                             className="smallCard-logo"
                           />
-                          <h5>{tech.name}</h5>
+                          <p>{tech.name}</p>
                         </div>
                       ))}
                     </div>
@@ -170,15 +169,33 @@ const MCQ = () => {
               )}
             </div>
             <div className="input-feed">
-            {mcqNumber > 30 && (
+              
+              <div>
+                <div className="input-field-wrapper">
+                  <div className="topic-name">
+                    {/* <label htmlFor="text">Topic</label> */}
+                    <input
+                      type="text"
+                      placeholder="Topic Name"
+                      value={topic}
+                      onChange={(e) => setTopic(e.target.value)}
+                    />
+                  </div>
+                  <div className="mcq-feed">
+                    {/* <label htmlFor="number">MCQs</label> */}
+                    <input
+                      type="number"
+                      value={mcqNumber}
+                      placeholder="Enter number of MCQ"
+                      onChange={(e) => setMcqNumber(e.target.value)}
+                    />
+                  </div>
+                </div>
+                {mcqNumber > 30 && (
                 <div className="file-type-wrapper">
                   <div className="file-type">
                     <label>File Type </label>
-                    <div
-                    // style={{
-                    //   display: "flex",
-                    //   alignItems: "center",
-                    // }}
+                    <div className="checkbox-wrapper"
                     >
                       <input
                         type="checkbox"
@@ -208,53 +225,12 @@ const MCQ = () => {
                       style={{ fontSize: "12px", color: "white" }}
                       className="file-info"
                     >
-                      <span>📌</span>
                       You can select multiple file types and receive the MCQs
                       through email.
                     </p>
                   </div>
                 </div>
               )}
-              <div className="input-field-wrapper">
-                <div className="topic-name">
-                  <label htmlFor="text">Topic</label>
-                  <input
-                    type="text"
-                    placeholder="Ex. React"
-                    value={topic}
-                    onChange={(e) => setTopic(e.target.value)}
-                  />
-                </div>
-                <div className="mcq-feed">
-                  <label htmlFor="number">MCQs</label>
-                  <input
-                    type="number"
-                    value={mcqNumber}
-                    placeholder="Enter number of MCQ"
-                    onChange={(e) => setMcqNumber(e.target.value)}
-                  />
-                </div>
-                {/* {mcqNumber > 30 && (
-                <div className="file-type-select">
-                  <label htmlFor="fileType">File Type</label>
-                  <select
-                    id="fileType"
-                    value={selectedFileType}
-                    onChange={(e) => setSelectedFileType(e.target.value)}
-                    ///disabled={mcqNumber < 30}
-                    style={{
-                      borderColor: mcqNumber > 30 ? "green" : "",
-                    }}
-                  >
-                    {fileTypes.map((type) => (
-                      <option key={type} value={type}>
-                        {type.toUpperCase()}
-                      </option>
-                    ))}
-                  </select>
-                </div>
-              )} */}
-
                 <div className="btn-wrapper">
                   <button
                     className="generate-mcq-btn"
@@ -266,7 +242,6 @@ const MCQ = () => {
                 </div>
               </div>
               {/* <hr className="hr-line" /> */}
-             
             </div>
           </div>
         </div>
@@ -275,10 +250,12 @@ const MCQ = () => {
 
       {isModalOpen && (
         <Modal onClose={() => setIsModalOpen(false)}>
-          <h2 className="text-bg-grey" >Request MCQs through Email</h2>
+          <h2 className="text-bg-grey">Request MCQs through Email</h2>
           <br />
           <br />
-          <p className="text-bg-grey">You will receive the MCQs in your email - {email} shortly.</p>
+          <p className="text-bg-grey">
+            You will receive the MCQs in your email - {email} shortly.
+          </p>
           <br />
           <br />
         </Modal>

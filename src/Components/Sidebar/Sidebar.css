@@ -173,7 +173,7 @@ label[for="nav-toggle"] {
 
 #nav-content {
   /* border: 1px solid red; */
-  margin: -16px 0;
+  /* margin: -16px 0; */
   padding: 16px 0;
   position: relative;
   flex: 1;
@@ -231,10 +231,11 @@ label[for="nav-toggle"] {
 
 .nav-button {
   position: relative;
-  margin-left: 25px;
-  height: 55px;
+  margin-left: 5px;
+  height: 60px;
+  border-bottom: 0.1px solid gainsboro;
   /* margin-bottom: 8px; */
-  /* display: flex; */
+  display: flex;
   /* align-items: center; */
   color: var(--navbar-light-secondary);
   direction: ltr;
@@ -247,9 +248,21 @@ label[for="nav-toggle"] {
   }
 }
 
+.image-wrapper{
+  display: flex;
+  align-items: center;
+  padding: 8px;
+  background-color: var(--navbar-dark-primary);
+  margin-right: 8px;
+}
+
+.sidebar-box-text{
+  margin-top: 5px;
+}
+
 .projectDate{
   font-size: 10px;
-  border-bottom: 0.1px solid grey;
+  /* border-bottom: 0.1px solid grey; */
 }
 
 .project-wrapper{

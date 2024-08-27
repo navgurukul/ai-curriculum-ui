@@ -8,7 +8,7 @@ const ProjectGeneration = ({
   numProjects,
   response,
   updateResponse,
-  apistopRefProject,
+  apistopRefProject,setNextRequest,
 }) => {
   const [loading, setLoading] = useState(false);
   const [resultData, setResultData] = useState(response || "");
@@ -31,6 +31,7 @@ const ProjectGeneration = ({
   };
 
   const fetchData = async () => {
+    setNextRequest(false);
     setLoading(true);
     setRecentPrompt(`Generate ${numProjects} project idea on ${topic}`);
     const payload = {
@@ -54,13 +55,13 @@ const ProjectGeneration = ({
       const projectDescription = projects
         .map(
           (proj) => `
-        <div className="Link-tag"  >
-          <h3>${proj.title.replace("## ", "")}</h3>
-          <p>${proj.description}</p>
-          <a href="${
-            proj.url
-          }" target="_blank" id="tag-link">View Project Details</a>
-        </div>
+         <div className="Link-tag" style="margin-bottom: 10px;">
+        <h3 style="margin-bottom: 10px;">${proj.title.replace("## ", "")}</h3>
+        <p >${proj.description}</p>
+        <a href="${
+          proj.url
+        }" target="_blank" id="tag-link" style="margin-bottom: 12px; color: #e77f53 !important;">View Project Details</a>
+      </div>
       `
         )
         .join("");
@@ -76,6 +77,7 @@ const ProjectGeneration = ({
       setResultData("An error occurred while fetching data.");
       updateResponse("An error occurred while fetching data.");
     } finally {
+      setNextRequest(true);
       setLoading(false);
     }
   };
@@ -85,11 +87,11 @@ const ProjectGeneration = ({
 
   return (
     <>
-      <div className="result-title-MG">
+      <div className="result-title-pro">
         <img src={profilePicture} alt="Student" />
         <p>{recentPrompt}</p>
       </div>
-      <div className="result-data">
+      <div className="result-data-pro">
         {loading ? (
           <>
             <img src={assets.NG_logo} alt="Loading" />
@@ -99,13 +101,16 @@ const ProjectGeneration = ({
               <hr />
             </div>
           </>
-        ) : ( 
+        ) : (
           <>
             <img src={assets.NG_logo} alt="React Logo" />
             {numProjects > 3 ? (
               <p>You will receive the projects through email shortly.</p>
             ) : (
-              <p dangerouslySetInnerHTML={{ __html: resultData }}></p>
+              <p
+                dangerouslySetInnerHTML={{ __html: resultData }}
+                className="project-display"
+              ></p>
             )}
           </>
         )}

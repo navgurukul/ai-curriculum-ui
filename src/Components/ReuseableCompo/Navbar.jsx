@@ -28,11 +28,11 @@ const Navbar = () => {
             MCQs
           </span>
         </Link>
-        {/* <Link to="/project" style={{ textDecoration: "none" }}>
+        <Link to="/project" style={{ textDecoration: "none" }}>
           <span className={location.pathname === "/project" ? "active" : ""}>
             Projects
           </span>
-        </Link> */}
+        </Link>
         {/* <Link to={"/main"} style={{textDecoration:"none"}}><span>G-ni</span></Link> */}
         {/* <Link to={"/experi"} style={{ textDecoration: "none" }}>
           <span>Experi</span>

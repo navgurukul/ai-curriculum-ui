@@ -6,6 +6,7 @@
   width: var(--img-width-small-card);
   height: var(--img-height-small-card);
   border-radius: 50px;
+  margin-right: 10px;
 }
 
 .main-container-experi {
@@ -36,13 +37,14 @@
   /* height: 300px; */
   display: flex;
   /* flex-direction: column; */
-  justify-content: center;
+  justify-content: space-between;
   align-items: flex-end;
   width: 50%;
   background-color: var(--grey-bg-color);
   margin: 0px auto;
   margin-top: 10px;
   border-radius: var(--border-radius-3);
+  padding: 0px 10%;
 }
 
 .input-field-wrapper input {
@@ -50,33 +52,44 @@
   outline: var(--outline-none);
   border: 0.5px solid gray;
   border-radius: var(--border-radius-3);
-
-  padding: 4px 2%;
+  padding: 8px;
+  /* padding: 4px 2%; */
 }
 
 .file-type-wrapper {
-  border: 1px solid orange;
+  border: 0px solid orange;
   width: 50%;
   margin: 0px auto;
   text-align: center;
+  background-color: var(--grey-bg-color);
+  padding-bottom: 5px;
+  /* padding: 0px 5%; */
 }
 
 .file-type {
-  margin: 10px 0px;
+  /* border: 1px solid red; */
+  padding: 10px 0px;
+  /* width: 50%; */
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: var(--grey-bg-color);
   label {
     margin-right: 20px;
+    background-color: var(--grey-bg-color);
   }
   input {
-    margin-left: 5px;
+    /* margin-left: 5px; */ 
+    background-color: var(--grey-bg-color);
+    /* width: 100%; */
+  }
+  span{ 
+    background-color: var(--grey-bg-color);
   }
 }
 
 .topic-name,
-.mcq-feed,
-.btn-wrapper {
+.mcq-feed {
   /* border: 1px solid red; */
   /* width: 38%; */
   /* display: flex; */
@@ -84,30 +97,52 @@
   /* justify-content: space-between; */
   /* align-items: center; */
   background-color: var(--grey-bg-color);
-  margin: 10px 10px;
+  /* margin: 10px 10px; */
   label {
     background-color: var(--grey-bg-color);
   }
   input {
-    margin-top: 10px;
-    background-color: var(--grey-bg-color);
+    /* margin-top: 10px; */
+    margin: 10px 0px;
+    background-color: var(--grey-bg-color) !important;
   }
 }
 
-.file-type { 
+/* .topic-name input {
+  margin-right: 18px;
+}
+
+.mcq-feed input {
+  margin-left: 18px;
+} */
+
+
+
+.file-type {
+  background-color: var(--grey-bg-color);
   input {
-    margin-right: 5px;
+    width: 20px;
+    height: 20px;
+    background-color: var(--grey-bg-color);
+    /* margin-right: 5px; */
+  }
+  span{
+    padding: 0px 10px;
   }
 }
 
 .btn-wrapper {
   /* border: 1px solid red; */
+  width: 50%;
+  margin: 0px auto;
   display: flex;
   justify-content: center;
+  background-color: var(--grey-bg-color);
+  padding-bottom: 10px;
 }
 
 .btn-wrapper button {
-  /* width: 130px; */
+  width: 60%;
   background-color: var(--transparent-button);
   outline: var(--outline-none);
   border: var(--border-none);
@@ -120,6 +155,10 @@
 .generate-mcq-btn {
   cursor: pointer;
 }
+
+.file-info-para p{
+  background-color: var(--grey-bg-color);
+}
 .hr-line {
   margin: 20px 0px;
   width: 100%;
@@ -128,6 +167,12 @@
 .suggestion-box {
   text-align: center;
   margin: 50px 0px;
+}
+
+.checkbox-wrapper{
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .min-box-wrapper {
@@ -143,7 +188,7 @@
 .single-box {
   border: 1px solid #808080;
   display: flex;
-  justify-content: space-between;
+  /* justify-content: space-between; */
   align-items: center;
   min-width: 135px;
   margin: 10px 20px;
@@ -154,7 +199,8 @@
   padding: 8px;
 }
 
-.single-box h5 {
+.single-box p {
+  font-size: 13px;
   background-color: #2f2f2f;
 }
 .loader {
@@ -168,7 +214,7 @@
 .loader hr {
   border-radius: 4px;
   border: none;
-  background-color: var(--background-color);
+  background-color: var(--background-color-blk);
   background: linear-gradient(to right, #adadadb3, #ffffffb0, #adadadb3);
   background-size: 800px 50px;
   height: 20px;
@@ -221,7 +267,7 @@
   .topic-name,
   .mcq-feed,
   .btn-wrapper,
-  .file-type { 
+  .file-type {
     width: 75%;
   }
 }
@@ -271,7 +317,6 @@
     /* width: 55%; */
     padding: 7px 10px;
   }
-   
 
   .input-field-wrapper input {
     /* width: 100%; */
