@@ -53,6 +53,7 @@
   border: 0.5px solid gray;
   border-radius: var(--border-radius-3);
   padding: 8px;
+  width: 40%;
   /* padding: 4px 2%; */
 }
 
@@ -88,6 +89,14 @@
   }
 }
 
+.topic-name {
+  margin-right: 5px;
+}
+
+.mcq-feed {
+  margin-left: 5px;
+}
+
 .topic-name,
 .mcq-feed {
   /* border: 1px solid red; */
@@ -103,6 +112,7 @@
   }
   input {
     /* margin-top: 10px; */
+    width: 100%;
     margin: 10px 0px;
     background-color: var(--grey-bg-color) !important;
   }
@@ -126,7 +136,7 @@
     background-color: var(--grey-bg-color);
     /* margin-right: 5px; */
   }
-  span{
+  span {
     padding: 0px 10px;
   }
 }
@@ -252,6 +262,12 @@
   }
 }
 
+@media screen and (max-width: 9850px) {
+  .min-box-wrapper {
+    width: 100%;
+  }
+}
+
 @media screen and (max-width: 770px) {
   .min-box-wrapper {
     padding: 1% 0.1%;
@@ -264,12 +280,12 @@
     display: none;
   }
 
-  .topic-name,
+  /* .topic-name,
   .mcq-feed,
   .btn-wrapper,
   .file-type {
     width: 75%;
-  }
+  } */
 }
 
 @media screen and (max-width: 426px) {
