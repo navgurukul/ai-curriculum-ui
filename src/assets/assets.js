@@ -12,7 +12,7 @@ import youtube_icon from './youtube_icon.png'
 import message_icon from './message_icon.png'
 import code_icon from './code_icon.png'
 import send_icon from './send_icon.png'
-import gemini_icon from './gemini_icon.png'
+import gemini_icon from './DefaultIcon.png'
 import NG_logo from './Nglogo.webp'
 import Student from "./Student.webp"
 import ReactLogo from "./reactlogo.png" 
@@ -30,9 +30,17 @@ import ReactSmallIcon from "./reactSmallIcon.webp"
 import JavascriptLogoOri from "./JavaScript-logo.png"
 import NGAI from './NG-AI.webp'
 import sidebarLogo from "./sidebarLogo.png"
+import AngSmallLogoFigma from "./AngularSmallLogoFigma.png"
+import NodeSmallLogoFigma from "./NodeSmallLogoFigma.jpeg"
+import MongoSmallLogoFigma from "./MongoSmallLogoFigma.png"
+import ExpressSmallLogoFigma from "./ExpressSmallLogoFigma.png"
+import CppSmallLogoFigma from "./CppSmallLogoFigma.png"
+import PostgreSmallLogoFigma from "./PostgreSmallLogoFigma.jpeg"
 
 export const assets = {
-    history_icon,ReactLogo,AngularLogo,CustomLogo,ErrorPage,
+    NodeSmallLogoFigma,MongoSmallLogoFigma,ExpressSmallLogoFigma,CppSmallLogoFigma,
+    PostgreSmallLogoFigma,
+    history_icon,ReactLogo,AngularLogo,CustomLogo,ErrorPage,AngSmallLogoFigma,
     menu_icon,MongoLogo,VueLogo,HTMLLogo,ExpressLogo,NodeLogo,sidebarLogo,
     plus_icon,JavascriptLogoOri,
     question_icon,

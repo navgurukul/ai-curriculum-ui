@@ -1,34 +1,24 @@
-*{
-    margin: 0px;
-    padding: 0px;
-    box-sizing: border-box;
-    font-family: "Poppins", sans-serif;
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
 }
 
-.app{
-    /* border: 1px solid red; */
+.app {
+  /* border: 1px solid red; */
 }
 
-html{
-    margin: 0px;
-    padding: 0px;
+html {
+  margin: 0px;
+  padding: 0px;
 }
-
-
-
-
-
-
-
-
-
 
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
-
 
 /* below code for handling all scrollbar */
 ::-webkit-scrollbar {
@@ -37,7 +27,7 @@ input::-webkit-inner-spin-button {
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--background-color); /* Track color */
+  background: var(--background-color-blk); /* Track color */
 }
 
 ::-webkit-scrollbar-thumb {

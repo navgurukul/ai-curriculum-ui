@@ -3,12 +3,12 @@
   padding: 0px;
   box-sizing: border-box;
   font-family: "Poppins", sans-serif;
-  background-color: var(--background-color);
+  background-color: var(--background-color-blk);
   color: var(--font-color);
 }
 
 .Toastify__toast {
-  background-color: var(--background-color) !important;
+  background-color: var(--background-color-blk) !important;
   border: 0.1px solid grey !important;
 }
 
@@ -17,7 +17,7 @@ a {
   text-decoration: none;
 }
 
-button{ 
+button {
   padding: 6px 15px !important;
   min-width: 100px;
   cursor: pointer;
@@ -38,9 +38,10 @@ html {
 :root {
   --primary-color: #4caf50;
   --secondary-color: #ff9800;
-  /* --background-color: #211d3a; */
-  --background-color: black;
-  --grey-bg-color:  #2f2f2f;
+  /* --background-color-blk: #211d3a; */
+  --background-color-blk: black;
+  --background-color: #2f2f2f;
+  --grey-bg-color: #2f2f2f;
   --font-color: #d2d2d2;
   --font-size: 16px;
   --border-radius: 4px;

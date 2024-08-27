@@ -49,10 +49,10 @@
 
 .received-info{
   padding: 8px;
-  background-color: var(--grey-bg-color);
+  /* background-color: var(--grey-bg-color); */
   border-radius: var(--border-radius-3);
   width: 55vw;
   b{
-    background-color: var(--grey-bg-color);
+    /* background-color: var(--grey-bg-color); */
   }
 } 
