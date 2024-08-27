@@ -178,7 +178,7 @@ const MCQ = () => {
             </div>
             <div className="input-feed">
               
-              <div>
+              <div className="main-input-wrapper" >
                 <div className="input-field-wrapper">
                   <div className="topic-name">
                     {/* <label htmlFor="text">Topic</label> */}
@@ -248,7 +248,6 @@ const MCQ = () => {
                   </button>
                 </div>
               </div>
-              {/* <hr className="hr-line" /> */}
             </div>
           </div>
         </div>
