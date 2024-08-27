@@ -31,6 +31,12 @@
   /* height: 100vh; */
 }
 
+.main-input-wrapper{
+  /* border: 1px solid red; */
+  width: 43.5%;
+  margin: 0px auto;
+}
+
 .input-field-wrapper {
   /* border: 1px solid red; */
 
@@ -39,12 +45,12 @@
   /* flex-direction: column; */
   justify-content: space-between;
   align-items: flex-end;
-  width: 50%;
   background-color: var(--grey-bg-color);
   margin: 0px auto;
-  margin-top: 10px;
+  /* margin-top: 10px; */
   border-radius: var(--border-radius-3);
-  padding: 0px 10%;
+  /* width: 45%; */
+  padding: 0px 18%;
 }
 
 .input-field-wrapper input {
@@ -59,7 +65,7 @@
 
 .file-type-wrapper {
   border: 0px solid orange;
-  width: 50%;
+  width: 45%;
   margin: 0px auto;
   text-align: center;
   background-color: var(--grey-bg-color);
@@ -143,7 +149,8 @@
 
 .btn-wrapper {
   /* border: 1px solid red; */
-  width: 50%;
+  /* width: 45%; */
+  padding: 0px 2%;
   margin: 0px auto;
   display: flex;
   justify-content: center;
@@ -152,7 +159,7 @@
 }
 
 .btn-wrapper button {
-  width: 60%;
+  width: 67.5%;
   background-color: var(--transparent-button);
   outline: var(--outline-none);
   border: var(--border-none);
