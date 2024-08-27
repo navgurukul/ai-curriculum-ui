@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { assets } from "../../assets/assets";
 import { useNavigate, useLocation } from "react-router-dom";
+import { useValue } from "../../context/ContextProvider";
 
 const techLogosd = {
   React: assets.ReactLogo,
@@ -53,6 +54,7 @@ const techLogos = [
 ];
 
 const Sidebar = () => {
+  const { dispatch } = useValue(); 
   const [topics, setTopics] = useState([]);
   const [selectedTopicId, setSelectedTopicId] = useState(null);
   const [showSuggestion, setShowSuggestion] = useState(true);
@@ -75,6 +77,13 @@ const Sidebar = () => {
     } else {
       navigate(`/mcqHistory/${id}`, { state: { from: "mcq" } });
     }
+  };
+
+  const handleCardClick = (techName) => {
+    dispatch({
+      type: "QUICK_SUGGESTION_DATA",
+      payload: techName,
+    });
   };
 
   const fetchHistory = async () => {
@@ -185,14 +194,14 @@ const Sidebar = () => {
                   <div
                     key={index}
                     className="single-box-sb"
-                    // onClick={() => handleCardClick(tech.name)}
+                    onClick={() => handleCardClick(tech.name)}
                   >
                     <img
                       src={tech.logo}
                       alt={tech.name}
                       className="smallCard-logo-sb"
                     />
-                    <p>{tech.name}</p>
+                    <p >{tech.name}</p>
                   </div>
                 ))}
               </div>

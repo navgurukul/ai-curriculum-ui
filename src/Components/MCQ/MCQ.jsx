@@ -6,6 +6,7 @@ import { ToastContainer, toast } from "react-toastify";
 import Modal from "../ReuseableCompo/Modal/Modal";
 import "react-toastify/dist/ReactToastify.css";
 import "./MCQ.css";
+import { useValue } from "../../context/ContextProvider";
 
 const techLogos = [
   { logo: assets.ReactLogo, name: "React" },
@@ -32,8 +33,15 @@ const MCQ = () => {
   // const [selectedFileType, setSelectedFileType] = useState(fileTypes[0]);
   const [selectedFileTypes, setSelectedFileTypes] = useState([]);
   const apistopRef = useRef(false);
+  const { state, dispatch } = useValue();
+  // console.log(state, "STATE");
 
   useEffect(() => {
+    if (state.quickSuggestionData) {
+      setTopic(state.quickSuggestionData);
+      setMcqNumber(10);
+      dispatch({ type: "CLEAR_SUGGESTION_DATA" });
+    }
     if (localStorage.getItem("loginSuccess") === "true") {
       toast.success("Login Successful. Welcome to Curriculum-AI.", {});
       localStorage.removeItem("loginSuccess");
@@ -42,7 +50,7 @@ const MCQ = () => {
     if (auth && auth.email) {
       setEmail(auth.email);
     }
-  }, [nextRequest]);
+  }, [nextRequest, state.quickSuggestionData]);
 
   const handleCardClick = (techName) => {
     setTopic(techName);
@@ -192,45 +200,44 @@ const MCQ = () => {
                   </div>
                 </div>
                 {mcqNumber > 30 && (
-                <div className="file-type-wrapper">
-                  <div className="file-type">
-                    <label>File Type </label>
-                    <div className="checkbox-wrapper"
-                    >
-                      <input
-                        type="checkbox"
-                        name="filetype"
-                        value="pdf"
-                        onChange={handleFileTypeChange}
-                      />
-                      <span>PDF</span>
-                      <input
-                        type="checkbox"
-                        name="filetype"
-                        value="csv"
-                        onChange={handleFileTypeChange}
-                      />
-                      <span>CSV</span>
-                      <input
-                        type="checkbox"
-                        name="filetype"
-                        value="json"
-                        onChange={handleFileTypeChange}
-                      />
-                      <span style={{ margin: "0px" }}>JSON</span>
+                  <div className="file-type-wrapper">
+                    <div className="file-type">
+                      <label>File Type </label>
+                      <div className="checkbox-wrapper">
+                        <input
+                          type="checkbox"
+                          name="filetype"
+                          value="pdf"
+                          onChange={handleFileTypeChange}
+                        />
+                        <span>PDF</span>
+                        <input
+                          type="checkbox"
+                          name="filetype"
+                          value="csv"
+                          onChange={handleFileTypeChange}
+                        />
+                        <span>CSV</span>
+                        <input
+                          type="checkbox"
+                          name="filetype"
+                          value="json"
+                          onChange={handleFileTypeChange}
+                        />
+                        <span style={{ margin: "0px" }}>JSON</span>
+                      </div>
+                    </div>
+                    <div className="file-info-para">
+                      <p
+                        style={{ fontSize: "12px", color: "white" }}
+                        className="file-info"
+                      >
+                        You can select multiple file types and receive the MCQs
+                        through email.
+                      </p>
                     </div>
                   </div>
-                  <div className="file-info-para">
-                    <p
-                      style={{ fontSize: "12px", color: "white" }}
-                      className="file-info"
-                    >
-                      You can select multiple file types and receive the MCQs
-                      through email.
-                    </p>
-                  </div>
-                </div>
-              )}
+                )}
                 <div className="btn-wrapper">
                   <button
                     className="generate-mcq-btn"

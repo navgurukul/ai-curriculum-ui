@@ -12,22 +12,29 @@ import Project from "./Components/Project/Project";
 import MCQ from "./Components/MCQ/MCQ"
 import ErrorPage from "./Pages/ErrorPage/ErrorPage";
 import MCQHistory from "./Components/MCQHistory/MCQHistory";
+import ContextProvider from "./context/ContextProvider";
 
 const App = () => {
   const location = useLocation();
   const showSidebar = location.pathname !== "/";
 
   return (
-    <div className="app" style={{  width:"100%"}} >
+    <div className="app" style={{ width: "100%" }}>
       {showSidebar && <Sidebar />}
-      <div className={`main-content ${showSidebar ? 'with-sidebar' : ''}`}>
+      <div className={`main-content ${showSidebar ? "with-sidebar" : ""}`}>
         <Routes>
           <Route path="*" element={<ErrorPage />} />
           <Route path="/" element={<LoginPage />} />
-          <Route path="/mcq" element={<PrivateRoute element={MCQ} />} /> 
+          <Route path="/mcq" element={<PrivateRoute element={MCQ} />} />
           <Route path="/project" element={<PrivateRoute element={Project} />} />
-          <Route path="/mcqHistory/:id" element={<PrivateRoute element={MCQHistory} />} />  
-          <Route path="/projectHistory/:id" element={<PrivateRoute element={MCQHistory} />} />  
+          <Route
+            path="/mcqHistory/:id"
+            element={<PrivateRoute element={MCQHistory} />}
+          />
+          <Route
+            path="/projectHistory/:id"
+            element={<PrivateRoute element={MCQHistory} />}
+          />
         </Routes>
       </div>
     </div>
@@ -36,7 +43,9 @@ const App = () => {
 
 const AppWrapper = () => (
   <Router>
-    <App />
+    <ContextProvider>
+      <App />
+    </ContextProvider>
   </Router>
 );
 

@@ -200,6 +200,7 @@
   display: flex;
   /* justify-content: space-between; */
   align-items: center;
+  height: 55px;
   min-width: 135px;
   margin: 10px 20px;
   padding-right: 15px;
@@ -262,7 +263,7 @@
   }
 }
 
-@media screen and (max-width: 9850px) {
+@media screen and (max-width: 985px) {
   .min-box-wrapper {
     width: 100%;
   }
