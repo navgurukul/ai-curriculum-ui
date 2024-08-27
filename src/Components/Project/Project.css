@@ -156,7 +156,8 @@
   flex-wrap: wrap;
   justify-content: center;
   /* padding: 1% 2%;  */
-  height: 230px;
+  min-height: 100px;
+  max-height: 230px;
   overflow-y: scroll;
 }
 
