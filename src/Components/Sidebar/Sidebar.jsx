@@ -57,7 +57,7 @@ const Sidebar = () => {
   const { dispatch } = useValue(); 
   const [topics, setTopics] = useState([]);
   const [selectedTopicId, setSelectedTopicId] = useState(null);
-  const [showSuggestion, setShowSuggestion] = useState(true);
+  const [showSuggestion, setShowSuggestion] = useState(false);
   const [showQuickSuggestion, setShowQuickSuggestion] = useState(true);
   const [history, setHistory] = useState([]);
   const [isProjectContext, setIsProjectContext] = useState(false);
@@ -73,9 +73,9 @@ const Sidebar = () => {
   const handleTopicClick = (id) => {
     setSelectedTopicId(id);
     if (isProjectContext) {
-      navigate(`/projectHistory/${id}`, { state: { from: "project" } });
+      navigate(`/history/${id}`, { state: { from: "project" } });
     } else {
-      navigate(`/mcqHistory/${id}`, { state: { from: "mcq" } });
+      navigate(`/history/${id}`, { state: { from: "mcq" } });
     }
   };
 
@@ -90,10 +90,16 @@ const Sidebar = () => {
     try {
       const token = localStorage.getItem("token");
       let apiUrl = "";
-      if (location.pathname.includes("/project") || location.pathname.includes("/projectHistory"))  {
+      if (
+        location.pathname.includes("/project") ||
+        location.pathname.includes("/projectHistory")
+      ) {
         apiUrl = "https://mcq-curriculum-ai.navgurukul.org/project/getHistory";
         setIsProjectContext(true);
-      } else if (location.pathname.includes("/mcq") || location.pathname.includes("/mcqHistory")) {
+      } else if (
+        location.pathname.includes("/mcq") ||
+        location.pathname.includes("/mcqHistory")
+      ) {
         apiUrl = "https://mcq-curriculum-ai.navgurukul.org/mcq/getHistory";
         setIsProjectContext(false);
       }
@@ -142,7 +148,12 @@ const Sidebar = () => {
 
   return (
     <div id="nav-bar" style={{ border: "0.1px solid lightgrey" }}>
-      <input type="checkbox" id="nav-toggle" />
+      <input
+        type="checkbox"
+        id="nav-toggle"
+        onChange={handleShowSuggestions}
+        checked={!showSuggestion}
+      />
 
       <div id="nav-header">
         {showQuickSuggestion ? (
@@ -150,7 +161,7 @@ const Sidebar = () => {
         ) : (
           <span>Project History</span>
         )}
-        <label htmlFor="nav-toggle" onClick={handleShowSuggestions}>
+        <label htmlFor="nav-toggle"  >
           <span id="nav-toggle-burger"></span>
         </label>
         <hr />
@@ -159,13 +170,17 @@ const Sidebar = () => {
         <div id="nav-content">
           {history.map((item, index) => (
             <div className="nav-button" key={index}>
-              <div className="image-wrapper" >
+              <div className="image-wrapper">
                 <img
                   // src={techLogosd[item?.topic] || assets.DefaultIcon}
                   src={techLogosd[item?.topic] || techLogosd.DefaultIcon}
                   alt={item.topic}
                   className="history-icon"
-                  style={{ width: "30px", height: "30px", borderRadius:"50px" }}
+                  style={{
+                    width: "30px",
+                    height: "30px",
+                    borderRadius: "50px",
+                  }}
                 />
               </div>
               <div className="bg-grey sidebar-box-text" >
