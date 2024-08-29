@@ -81,40 +81,63 @@ const LoginPage = () => {
       ) : (
         <div className="login-page-container">
           <header className="header">
-            <div style={{visibility:"hidden"}} >
-              <img src={assets.NGAI} className="logo" alt="logo"  />
-            </div> 
+            <div>
+              <div className="text-wrapper">
+                <h3 className="curriculum-text">
+                  Curriculum <span>AI</span>{" "}
+                </h3>
+              </div>
+            </div>
             <div className="navigation">
-              <a href="#product">Product</a>
-              <a href="#features">Features</a>
-              <a href="#pricing">Pricing</a>
-              <a href="#about">About</a>
-              <a href="#call-to-action" className="cta">
-                Call to action
-              </a>
+              <a href={loginUrl}>Get Started</a>
             </div>
           </header>
           <div className="content">
             <div className="text-section">
               <div className="container">
-                <div className="row"><span>Welcome to</span>
+                <div className="row">
                   <div className="col-md-12 text-center">
                     <h3 className="animate-charcter  ">Curriculum-AI</h3>
                   </div>
                 </div>
-              </div> 
-              <p className="para-landing-text" >
-              Welcome to our Curriculum-AI, designed to generate multiple-choice questions (MCQs) and projects on various technologies like React & Next.js. We can conveniently share additional MCQs and project ideas via email. A multi-purpose platform for educational institutions, NGOs, and anyone aiming to improve their tech training programs.
+              </div>
+              <p className="para-landing-text">
+                A multi-purpose MCQs and project generating platform for
+                educational institutions, NGOs, and anyone aiming to improve
+                their tech training programs.
               </p>
+              <ul>
+                <li>
+                  <img src={assets.choice} alt="" />
+                  <p>
+                    Choose from a range of web and programming technologies like
+                    React, Javascript and more.
+                  </p>
+                </li>
+                <li>
+                  <img src={assets.email} alt="" />
+                  <p>
+                    Receive larger sets of MCQs and projects via email in
+                    preferred file formats in your inbox.
+                  </p>
+                </li>
+                <li>
+                  <img src={assets.time} alt="" />
+                  <p>Access previously created curriculums anytime.</p>
+                </li>
+              </ul>
               <div className="buttons">
-                <button className="btn" onClick={() => window.location.href = loginUrl}>
-                  <a 
-                  // href={loginUrl} 
-                  className="login-button">
+                <button
+                  className="btn"
+                  onClick={() => (window.location.href = loginUrl)}
+                >
+                  <a
+                    // href={loginUrl}
+                    className="login-button"
+                  >
                     Login
                   </a>
-                </button>
-                <button className="btn secondary">Email us</button>
+                </button> 
               </div>
             </div>
             <div className="image-section">
