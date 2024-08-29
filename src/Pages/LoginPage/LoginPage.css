@@ -102,6 +102,9 @@
     color: var(--white-color);
     border-radius: var(--border-radius-3);
   }
+  a{
+    color: black !important;
+  }
   .login-button {
     width: 100%;
     background-color: var(--transparent-button);
