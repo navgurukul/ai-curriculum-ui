@@ -36,8 +36,12 @@ import MongoSmallLogoFigma from "./MongoSmallLogoFigma.png"
 import ExpressSmallLogoFigma from "./ExpressSmallLogoFigma.png"
 import CppSmallLogoFigma from "./CppSmallLogoFigma.png"
 import PostgreSmallLogoFigma from "./PostgreSmallLogoFigma.jpeg"
+import time from "./time.svg"
+import choice from "./choice.svg"
+import email from "./email.svg"
 
 export const assets = {
+    time, choice, email,
     NodeSmallLogoFigma,MongoSmallLogoFigma,ExpressSmallLogoFigma,CppSmallLogoFigma,
     PostgreSmallLogoFigma,
     history_icon,ReactLogo,AngularLogo,CustomLogo,ErrorPage,AngSmallLogoFigma,
