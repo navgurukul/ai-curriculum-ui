@@ -23,15 +23,17 @@ const techLogosd = {
   mongodb: assets.MongoSmallLogoFigma,
   Postgre: assets.PostgreSmallLogoFigma,
   postgre: assets.PostgreSmallLogoFigma,
-  Python: assets.ReactLogo,   
-  python: assets.ReactLogo,
-  Java: assets.HTMLLogo,
-  java: assets.HTMLLogo,
-  Django: assets.VueLogo,
-  django: assets.VueLogo,
+  Python: assets.pythonSmallLogoFigma,   
+  python: assets.pythonSmallLogoFigma,
+  Java: assets.javaSmallLogoFigma,
+  java: assets.javaSmallLogoFigma,
+  Django: assets.djangoSmallLogoFigma,
+  django: assets.djangoSmallLogoFigma,
   JavaScript: assets?.JavascriptLogoOri,
   javascript: assets?.JavascriptLogoOri,
   javaScript: assets?.JavascriptLogoOri,   
+  "c++": assets?.CppSmallLogoFigma,   
+  "C++": assets?.CppSmallLogoFigma,      
   DefaultIcon: assets.DefaultIcon,
 };
 
@@ -39,17 +41,17 @@ const techLogosd = {
 
 const techLogos = [
   { logo: assets.ReactLogo, name: "React" },
-  { logo: assets.AngularLogo, name: "Angular" },
+  { logo: assets.AngSmallLogoFigma, name: "Angular" },
   { logo: assets.VueLogo, name: "Vue" },
   { logo: assets.HTMLLogo, name: "HTML" },
   { logo: assets.ExpressLogo, name: "Express" },
-  { logo: assets.NodeLogo, name: "Node" },
-  { logo: assets.MongoLogo, name: "MongoDB" },
-  { logo: assets.CustomLogo, name: "Postgre" },
-  { logo: assets.ReactLogo, name: "Python" },
-  { logo: assets.HTMLLogo, name: "Java" },
-  { logo: assets.VueLogo, name: "Django" },
-  { logo: assets.VueLogo, name: "C++" },
+  { logo: assets.NodeSmallLogoFigma, name: "Node" },
+  { logo: assets.MongoSmallLogoFigma, name: "MongoDB" },
+  { logo: assets.PostgreSmallLogoFigma, name: "Postgre" },
+  { logo: assets.pythonSmallLogoFigma, name: "Python" },
+  { logo: assets.javaSmallLogoFigma, name: "Java" },
+  { logo: assets.djangoSmallLogoFigma, name: "Django" },
+  { logo: assets.CppSmallLogoFigma, name: "C++" },
   { logo: assets.JavascriptLogoOri, name: "JavaScript" },
 ];
 
@@ -73,9 +75,9 @@ const Sidebar = () => {
   const handleTopicClick = (id) => {
     setSelectedTopicId(id);
     if (isProjectContext) {
-      navigate(`/history/${id}`, { state: { from: "project" } });
+      navigate(`/projectHistory/${id}`, { state: { from: "project" } });
     } else {
-      navigate(`/history/${id}`, { state: { from: "mcq" } });
+      navigate(`/mcqHistory/${id}`, { state: { from: "mcq" } });
     }
   };
 
@@ -139,7 +141,13 @@ const Sidebar = () => {
     } else if (location.pathname.includes("/mcq")) {
       setShowQuickSuggestion(true);
       fetchHistory();
-    } 
+    } else if (location.pathname.includes("/mcqHistory/")){
+      setShowQuickSuggestion(true);
+      fetchHistory();
+    }else if (location.pathname.includes("/projectHistory/")){
+      setShowQuickSuggestion(false);
+      fetchHistory();
+    }
   }, [location.pathname,showSuggestion]);
 
   const handleShowSuggestions = () => {

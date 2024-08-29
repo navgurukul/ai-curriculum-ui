@@ -132,7 +132,7 @@ const Project = () => {
   }, []);
 
   const handleProjectClick = async (project) => {
-    navigate(`/history/${project._id}`, { state: { from: "project" } });
+    navigate(`/projectHistory/${project._id}`, { state: { from: "project" } });
     return;
     // setModalOpen(true);
     // setLoadingModalInfo(true);

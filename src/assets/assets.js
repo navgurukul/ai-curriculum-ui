@@ -36,6 +36,9 @@ import MongoSmallLogoFigma from "./MongoSmallLogoFigma.png"
 import ExpressSmallLogoFigma from "./ExpressSmallLogoFigma.png"
 import CppSmallLogoFigma from "./CppSmallLogoFigma.png"
 import PostgreSmallLogoFigma from "./PostgreSmallLogoFigma.jpeg"
+import pythonSmallLogoFigma from "./pythonSmallLogoFigma.png"
+import javaSmallLogoFigma from "./JavaSmallLogoFigma.png"
+import djangoSmallLogoFigma from "./DjangoSmallLogoFigma.png"
 import time from "./time.svg"
 import choice from "./choice.svg"
 import email from "./email.svg"
@@ -43,7 +46,7 @@ import email from "./email.svg"
 export const assets = {
     time, choice, email,
     NodeSmallLogoFigma,MongoSmallLogoFigma,ExpressSmallLogoFigma,CppSmallLogoFigma,
-    PostgreSmallLogoFigma,
+    PostgreSmallLogoFigma,pythonSmallLogoFigma,javaSmallLogoFigma,djangoSmallLogoFigma,
     history_icon,ReactLogo,AngularLogo,CustomLogo,ErrorPage,AngSmallLogoFigma,
     menu_icon,MongoLogo,VueLogo,HTMLLogo,ExpressLogo,NodeLogo,sidebarLogo,
     plus_icon,JavascriptLogoOri,

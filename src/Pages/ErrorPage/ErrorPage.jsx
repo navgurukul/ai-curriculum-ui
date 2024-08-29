@@ -10,10 +10,12 @@ const ErrorPage = () => {
   return (
     <div
       style={{
+        position:"absolute",
         width: "100vw",
         height: "100vh",
         backgroundColor: "black",
         textAlign: "center",
+        zIndex:"2000",
       }}
     >
       <img
@@ -21,9 +23,17 @@ const ErrorPage = () => {
         alt="ErrorPage"
         style={{ height: "98.98vh" }}
       />
-      <button 
-      style={{position:"absolute", top:"500px", left:"700px"}}
-      onClick={handleHomePage}>Home Page</button>
+      <button
+        style={{
+          position: "absolute",
+          top: "500px",
+          left: "700px",
+          color: "white !important",
+        }}
+        onClick={handleHomePage}
+      >
+        Home Page
+      </button>
     </div>
   );
 };

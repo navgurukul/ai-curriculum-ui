@@ -17,9 +17,9 @@ const techLogos = [
   { logo: assets.NodeSmallLogoFigma, name: "Node" },
   { logo: assets.MongoSmallLogoFigma, name: "MongoDB" },
   { logo: assets.PostgreSmallLogoFigma, name: "Postgre" },
-  { logo: assets.ReactLogo, name: "Python" },
-  { logo: assets.HTMLLogo, name: "Java" },
-  { logo: assets.VueLogo, name: "Django" },
+  { logo: assets.pythonSmallLogoFigma, name: "Python" },
+  { logo: assets.javaSmallLogoFigma, name: "Java" },
+  { logo: assets.djangoSmallLogoFigma, name: "Django" },
   { logo: assets.CppSmallLogoFigma, name: "C++" },
 ];
 
