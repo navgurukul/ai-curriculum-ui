@@ -22,7 +22,7 @@
 }
 
 .code-block {
-  background-color: black;
+  background-color: var(--light-grey-bg-color);
   color: white;
   padding: 10px;
   border-radius: 5px;

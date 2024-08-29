@@ -20,7 +20,7 @@ button {
   padding: 6px 15px !important;
   min-width: 100px;
   cursor: pointer;
-  color: black !important;
+  /* color: black !important; */
 }
 
 #tag-link {
@@ -42,6 +42,7 @@ html {
   --background-color-blk: black;
   --background-color: #2f2f2f;
   --grey-bg-color: #2f2f2f;
+  --light-grey-bg-color:#4c4c4c;
   --font-color: #d2d2d2;
   --font-size: 16px;
   --border-radius: 4px;

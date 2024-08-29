@@ -28,7 +28,11 @@ const App = () => {
           <Route path="/mcq" element={<PrivateRoute element={MCQ} />} />
           <Route path="/project" element={<PrivateRoute element={Project} />} />
           <Route
-            path="/history/:id"
+            path="/mcqHistory/:id"
+            element={<PrivateRoute element={MCQHistory} />}
+          />
+           <Route
+            path="/projectHistory/:id"
             element={<PrivateRoute element={MCQHistory} />}
           />
         </Routes>
