@@ -43,7 +43,6 @@ const techLogos = [
   { logo: assets.ReactLogo, name: "React" },
   { logo: assets.AngSmallLogoFigma, name: "Angular" },
   { logo: assets.VueLogo, name: "Vue" },
-  { logo: assets.HTMLLogo, name: "HTML" },
   { logo: assets.ExpressLogo, name: "Express" },
   { logo: assets.NodeSmallLogoFigma, name: "Node" },
   { logo: assets.MongoSmallLogoFigma, name: "MongoDB" },
