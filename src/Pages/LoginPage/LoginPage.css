@@ -46,12 +46,14 @@
 
 .navigation {
   /* border: 1px solid red; */
+  width: 150px;
   background-color: #e77f53;
   color: black;
   border-radius: 5px;
-  padding: 5px 2px;
+  padding: 5px 0px;
   a {
-    width: max-content;
+    font-size: 13px;
+    
     background-color: #e77f53;
     color: black;
   }
