@@ -13,7 +13,7 @@ const techLogosd = {
   Vue: assets.VueLogo,
   vue: assets.VueLogo,
   HTML: assets.HTMLLogo,
-  Html: assets.HTMLLogo,   
+  Html: assets.HTMLLogo,
   html: assets.HTMLLogo,
   Express: assets.ExpressLogo,
   express: assets.ExpressLogo,
@@ -23,7 +23,7 @@ const techLogosd = {
   mongodb: assets.MongoSmallLogoFigma,
   Postgre: assets.PostgreSmallLogoFigma,
   postgre: assets.PostgreSmallLogoFigma,
-  Python: assets.pythonSmallLogoFigma,   
+  Python: assets.pythonSmallLogoFigma,
   python: assets.pythonSmallLogoFigma,
   Java: assets.javaSmallLogoFigma,
   java: assets.javaSmallLogoFigma,
@@ -31,13 +31,11 @@ const techLogosd = {
   django: assets.djangoSmallLogoFigma,
   JavaScript: assets?.JavascriptLogoOri,
   javascript: assets?.JavascriptLogoOri,
-  javaScript: assets?.JavascriptLogoOri,   
-  "c++": assets?.CppSmallLogoFigma,   
-  "C++": assets?.CppSmallLogoFigma,      
+  javaScript: assets?.JavascriptLogoOri,
+  "c++": assets?.CppSmallLogoFigma,
+  "C++": assets?.CppSmallLogoFigma,
   DefaultIcon: assets.DefaultIcon,
 };
-
-
 
 const techLogos = [
   { logo: assets.ReactLogo, name: "React" },
@@ -55,13 +53,14 @@ const techLogos = [
 ];
 
 const Sidebar = () => {
-  const { dispatch } = useValue(); 
+  const { dispatch } = useValue();
   const [topics, setTopics] = useState([]);
   const [selectedTopicId, setSelectedTopicId] = useState(null);
   const [showSuggestion, setShowSuggestion] = useState(false);
   const [showQuickSuggestion, setShowQuickSuggestion] = useState(true);
   const [history, setHistory] = useState([]);
   const [isProjectContext, setIsProjectContext] = useState(false);
+  const [showQuickOptions, setShowQuickOptions] = useState(false);
   const [userInfo, setUserInfo] = useState({
     name: "",
     email: "",
@@ -124,29 +123,28 @@ const Sidebar = () => {
     }
   };
 
-   
   const getTimeAgo = (date) => {
     const now = new Date();
     const createdDate = new Date(date);
     const diffTime = Math.abs(now - createdDate);
-    const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));  
-  
+    const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
+
     if (diffDays === 0) {
-      return 'Today';
+      return "Today";
     } else if (diffDays === 1) {
-      return '1 day ago';
+      return "1 day ago";
     } else if (diffDays < 30) {
       return `${diffDays} days ago`;
     } else if (diffDays < 60) {
-      return '1 month ago';
+      return "1 month ago";
     } else if (diffDays < 90) {
-      return '2 months ago';
+      return "2 months ago";
     } else {
-      const diffMonths = Math.floor(diffDays / 30);  
+      const diffMonths = Math.floor(diffDays / 30);
       return `${diffMonths} months ago`;
     }
   };
-  
+
   const authData = JSON.parse(localStorage.getItem("AUTH"));
 
   useEffect(() => {
@@ -163,17 +161,21 @@ const Sidebar = () => {
     } else if (location.pathname.includes("/mcq")) {
       setShowQuickSuggestion(true);
       fetchHistory();
-    } else if (location.pathname.includes("/mcqHistory/")){
+    } else if (location.pathname.includes("/mcqHistory/")) {
       setShowQuickSuggestion(true);
       fetchHistory();
-    }else if (location.pathname.includes("/projectHistory/")){
+    } else if (location.pathname.includes("/projectHistory/")) {
       setShowQuickSuggestion(false);
       fetchHistory();
     }
-  }, [location.pathname,showSuggestion]);
+  }, [location.pathname, showSuggestion]);
 
   const handleShowSuggestions = () => {
     setShowSuggestion(!showSuggestion);
+  };
+
+  const showOptions = () => {
+    setShowQuickOptions(!showQuickOptions);
   };
 
   return (
@@ -191,22 +193,26 @@ const Sidebar = () => {
         ) : (
           <span>Project History</span>
         )}
-        <label htmlFor="nav-toggle"  >
+        <label htmlFor="nav-toggle">
           <span id="nav-toggle-burger"></span>
         </label>
         <hr />
       </div>
       {showSuggestion && (
         <div id="nav-content">
-          {history.map((item, index) => (
-            <div className="bg-grey nav-button" key={index}
-             onClick={() => handleTopicClick(item._id)}
-                  style={{
-                    cursor: "pointer",
-                    border: selectedTopicId === item._id ? "1px solid orange" : "",
-                  }}
-            >
-              {/* <div className="image-wrapper">
+          <div>
+            {history.map((item, index) => (
+              <div
+                className="bg-grey nav-button"
+                key={index}
+                onClick={() => handleTopicClick(item._id)}
+                style={{
+                  cursor: "pointer",
+                  border:
+                    selectedTopicId === item._id ? "1px solid orange" : "",
+                }}
+              >
+                {/* <div className="image-wrapper">
                 <img
                   src={techLogosd[item?.topic] || techLogosd.DefaultIcon}
                   alt={item.topic}
@@ -218,42 +224,55 @@ const Sidebar = () => {
                   }}
                 />
               </div> */}
-              <div className="bg-grey sidebar-box-text" >
-                <p
-                  style={{
-                    color: selectedTopicId === item._id ? "orange" : "",
-                  }}
-                >
-                  {item.topic}
-                </p>
-                <span className="projectDate">
-                  {getTimeAgo(item.created_at)}
-                </span>
-              </div>
-            </div>
-          ))}
-
-          {showQuickSuggestion && (
-            <div className="suggestion-box-sb  ">
-              <h5>Quick Suggestion </h5>
-              <div className="min-box-wrapper-sb">
-                {techLogos.map((tech, index) => (
-                  <div
-                    key={index}
-                    className="single-box-sb"
-                    onClick={() => handleCardClick(tech.name)}
+                <div className="bg-grey sidebar-box-text">
+                  <p
+                    style={{
+                      color: selectedTopicId === item._id ? "orange" : "",
+                    }}
                   >
-                    <img
-                      src={tech.logo}
-                      alt={tech.name}
-                      className="smallCard-logo-sb"
-                    />
-                    <p >{tech.name}</p>
-                  </div>
-                ))}
+                    {item.topic}
+                  </p>
+                  <span className="projectDate">
+                    {getTimeAgo(item.created_at)}
+                  </span>
+                </div>
               </div>
-            </div>
-          )}
+            ))}
+          </div>
+
+          <div>
+            {showQuickSuggestion && (
+              <div
+                // className="suggestion-box-sb  "
+                className={`suggestion-box-sb ${
+                  showQuickOptions ? "active" : ""
+                }`}
+              >
+                <button className="quick-suggestion" onClick={showOptions}>
+                  {showQuickOptions ? "Suggested Topic" : "Suggested Topic"}
+                </button>
+                {/* <h5>Quick Suggestion </h5> */}
+                {showQuickOptions && (
+                  <div className="min-box-wrapper-sb">
+                    {techLogos.map((tech, index) => (
+                      <div
+                        key={index}
+                        className="single-box-sb"
+                        onClick={() => handleCardClick(tech.name)}
+                      >
+                        <img
+                          src={tech.logo}
+                          alt={tech.name}
+                          className="smallCard-logo-sb"
+                        />
+                        <p>{tech.name}</p>
+                      </div>
+                    ))}
+                  </div>
+                )}
+              </div>
+            )}
+          </div>
         </div>
       )}
 

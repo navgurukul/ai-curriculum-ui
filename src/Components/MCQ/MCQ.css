@@ -165,7 +165,7 @@
   border: var(--border-none);
   border-radius: var(--border-radius-3);
   color: var(--white-color);
-  border: 0.5px solid grey;
+  /* border: 0.5px solid grey; */
   padding: 3px 10px;
 }
 
@@ -203,7 +203,7 @@
 }
 
 .single-box {
-  border: 1px solid #808080;
+  /* border: 1px solid #808080; */
   display: flex;
   /* justify-content: space-between; */
   align-items: center;
@@ -215,6 +215,13 @@
   cursor: pointer;
   background-color: #2f2f2f;
   padding: 8px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.single-box:hover{
+  border: 1px solid ghostwhite;
+  transform: scale(1.05);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
 
 .single-box p {

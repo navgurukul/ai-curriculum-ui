@@ -182,8 +182,12 @@ label[for="nav-toggle"] {
   /* border: 1px solid red; */
   /* margin: -16px 0; */
   /* padding: 16px 0; */
-  position: relative;
-  flex: 1;
+  /* position: relative;
+  flex: 1; */
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   width: var(--navbar-width);
   /* background: var(--navbar-dark-primary); */
   box-shadow: 0 0 0 16px var(--navbar-dark-primary);
@@ -194,8 +198,8 @@ label[for="nav-toggle"] {
 }
 
 #nav-content::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
+  width: 0px;
+  height: 0px;
   /* background-color: var(--navbar-dark-primary); */
 }
 
@@ -255,17 +259,15 @@ label[for="nav-toggle"] {
   /* cursor: pointer; */
   z-index: 1;
   transition: color 0.2s;
-  
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
   span {
     background-color: var(--navbar-dark-primary);
   }
 }
 
 .nav-button:hover {
-  border: 0.1px solid gainsboro;
-  /* text-underline-offset: 5px; */
-  /* text-decoration: underline; */
-  background-color: var(--navbar-dark-primary);
+  transform: scale(1.05);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
 
 .image-wrapper{
@@ -323,6 +325,15 @@ label[for="nav-toggle"] {
 #nav-bar .fas {
   min-width: 3rem;
   text-align: center;
+}
+
+.suggestion-box-sb button{ 
+  background-color: var(--transparent-button);
+  outline: var(--outline-none);
+  border: var(--border-none);
+  border-radius: var(--border-radius-3);
+  color: var(--white-color); 
+  padding: 3px 10px;
 }
 
 #nav-footer {
@@ -427,11 +438,10 @@ label[for="nav-footer-toggle"] {
 
 .suggestion-box-sb {
   text-align: center;
-  margin: 50px 0px;
-  background-color: var(--grey-bg-color);
+  margin: 20px 0px;
+  /* background-color: var(--grey-bg-color); */
   /* border: 1px solid red; */
   /* position: absolute;
-  bottom: 110; */
 }
 
 .min-box-wrapper-sb {
@@ -448,10 +458,10 @@ label[for="nav-footer-toggle"] {
 }
 
 .single-box-sb {
-  border: 1px solid #808080;
+  /* border: 1px solid #808080; */
   display: flex;
   justify-content: space-between;
-  flex-direction: row-reverse;
+  /* flex-direction: row-reverse; */
   align-items: center;
   min-width: 102px;
   margin: 5px 10px;
@@ -461,9 +471,16 @@ label[for="nav-footer-toggle"] {
   background-color: #2f2f2f;
   background-color: var(--grey-bg-color);
   padding: 8px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
   h5 {
     background-color: var(--grey-bg-color);
   }
+}
+
+.single-box-sb:hover{
+  /* border: 1px solid ghostwhite; */
+  transform: scale(1.05);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
 
 .single-box-sb img {
