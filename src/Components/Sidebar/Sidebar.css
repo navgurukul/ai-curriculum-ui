@@ -441,7 +441,7 @@ label[for="nav-footer-toggle"] {
   margin: 20px 0px;
   /* background-color: var(--grey-bg-color); */
   /* border: 1px solid red; */
-  /* position: absolute;
+  /* position: absolute;*/
 }
 
 .min-box-wrapper-sb {
@@ -449,6 +449,7 @@ label[for="nav-footer-toggle"] {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  margin-top: 15px;
   /* height: 500px;
   overflow-y: scroll; */
   /* width: 70%; */

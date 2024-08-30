@@ -243,10 +243,7 @@ const Sidebar = () => {
           <div>
             {showQuickSuggestion && (
               <div
-                // className="suggestion-box-sb  "
-                className={`suggestion-box-sb ${
-                  showQuickOptions ? "active" : ""
-                }`}
+                className="suggestion-box-sb"
               >
                 <button className="quick-suggestion" onClick={showOptions}>
                   {showQuickOptions ? "Suggested Topic" : "Suggested Topic"}
