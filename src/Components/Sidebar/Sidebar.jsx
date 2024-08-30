@@ -124,6 +124,29 @@ const Sidebar = () => {
     }
   };
 
+   
+  const getTimeAgo = (date) => {
+    const now = new Date();
+    const createdDate = new Date(date);
+    const diffTime = Math.abs(now - createdDate);
+    const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));  
+  
+    if (diffDays === 0) {
+      return 'Today';
+    } else if (diffDays === 1) {
+      return '1 day ago';
+    } else if (diffDays < 30) {
+      return `${diffDays} days ago`;
+    } else if (diffDays < 60) {
+      return '1 month ago';
+    } else if (diffDays < 90) {
+      return '2 months ago';
+    } else {
+      const diffMonths = Math.floor(diffDays / 30);  
+      return `${diffMonths} months ago`;
+    }
+  };
+  
   const authData = JSON.parse(localStorage.getItem("AUTH"));
 
   useEffect(() => {
@@ -176,33 +199,35 @@ const Sidebar = () => {
       {showSuggestion && (
         <div id="nav-content">
           {history.map((item, index) => (
-            <div className="nav-button" key={index}>
-              <div className="image-wrapper">
+            <div className="bg-grey nav-button" key={index}
+             onClick={() => handleTopicClick(item._id)}
+                  style={{
+                    cursor: "pointer",
+                    border: selectedTopicId === item._id ? "1px solid orange" : "",
+                  }}
+            >
+              {/* <div className="image-wrapper">
                 <img
-                  // src={techLogosd[item?.topic] || assets.DefaultIcon}
                   src={techLogosd[item?.topic] || techLogosd.DefaultIcon}
                   alt={item.topic}
                   className="history-icon"
                   style={{
-                    width: "30px",
-                    height: "30px",
+                    width: "25px",
+                    height: "25px",
                     borderRadius: "50px",
                   }}
                 />
-              </div>
+              </div> */}
               <div className="bg-grey sidebar-box-text" >
                 <p
-                  onClick={() => handleTopicClick(item._id)}
                   style={{
-                    cursor: "pointer",
                     color: selectedTopicId === item._id ? "orange" : "",
-                    width: "max-content",
                   }}
                 >
                   {item.topic}
                 </p>
                 <span className="projectDate">
-                  Created on - {new Date(item.created_at).toLocaleString()}
+                  {getTimeAgo(item.created_at)}
                 </span>
               </div>
             </div>
@@ -245,11 +270,6 @@ const Sidebar = () => {
               <i className="fas fa-caret-up"></i>
             </label>
           </div>
-
-          {/* <div id="nav-footer-content">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua.
-        </div> */}
         </div>
       )}
     </div>
