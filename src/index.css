@@ -41,12 +41,12 @@ html {
   /* --background-color-blk: #211d3a; */
   --background-color-blk: black;
   --background-color: #2f2f2f;
-  --grey-bg-color: #2f2f2f;
+  --grey-bg-color: #232323;
   --light-grey-bg-color:#4c4c4c;
   --font-color: #d2d2d2;
   --font-size: 16px;
   --border-radius: 4px;
-  --transparent-button: #e77f53;
+  --transparent-button: #e69620;
   --button-padding: 6px 20px;
   --button-base-color: #847167;
   --outline-none: none;
