@@ -47,14 +47,14 @@
 .navigation {
   /* border: 1px solid red; */
   width: 150px;
-  background-color: #e77f53;
+  background-color: var(--transparent-button);
   color: black;
   border-radius: 5px;
   padding: 5px 0px;
   a {
     font-size: 13px;
     
-    background-color: #e77f53;
+    background-color: var(--transparent-button);
     color: black;
   }
 }

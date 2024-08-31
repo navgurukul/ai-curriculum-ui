@@ -10,7 +10,7 @@
 }
 
 .nav .curriculum-text{ 
-  color: #e77f53;
+  color: var(--transparent-button);
 }
 
 .nav-options span{
@@ -19,9 +19,10 @@
 }
 
 .nav-options span.active {
-    text-underline-offset: 15px;
+    text-underline-offset: 25px;
     text-decoration: underline;
     text-decoration-color: var(--transparent-button);
+    text-decoration-thickness: 3px; 
   }
   
 

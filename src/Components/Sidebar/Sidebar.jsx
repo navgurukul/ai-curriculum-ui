@@ -179,7 +179,7 @@ const Sidebar = () => {
   };
 
   return (
-    <div id="nav-bar" style={{ border: "0.1px solid lightgrey" }}>
+    <div id="nav-bar">
       <input
         type="checkbox"
         id="nav-toggle"
@@ -200,91 +200,72 @@ const Sidebar = () => {
       </div>
       {showSuggestion && (
         <div id="nav-content">
-          <div>
+          <div className="bg-grey">
             {history.map((item, index) => (
               <div
                 className="bg-grey nav-button"
                 key={index}
                 onClick={() => handleTopicClick(item._id)}
-                style={{
-                  cursor: "pointer",
+                style={{ 
                   border:
                     selectedTopicId === item._id ? "1px solid orange" : "",
                 }}
+                // style={{border:"1px solid yellow"}}
               >
-                {/* <div className="image-wrapper">
-                <img
-                  src={techLogosd[item?.topic] || techLogosd.DefaultIcon}
-                  alt={item.topic}
-                  className="history-icon"
+                <p
                   style={{
-                    width: "25px",
-                    height: "25px",
-                    borderRadius: "50px",
+                    color: selectedTopicId === item._id ? "orange" : "",
                   }}
-                />
-              </div> */}
-                <div className="bg-grey sidebar-box-text">
-                  <p
-                    style={{
-                      color: selectedTopicId === item._id ? "orange" : "",
-                    }}
-                  >
-                    {item.topic}
-                  </p>
-                  <span className="projectDate">
-                    {getTimeAgo(item.created_at)}
-                  </span>
-                </div>
+                >
+                  {item.topic}
+                </p>
+                <span className="projectDate">
+                  {getTimeAgo(item.created_at)}
+                </span>
               </div>
             ))}
           </div>
-
-          <div>
-            {showQuickSuggestion && (
-              <div
-                className="suggestion-box-sb"
-              >
-                <button className="quick-suggestion" onClick={showOptions}>
-                  {showQuickOptions ? "Suggested Topic" : "Suggested Topic"}
-                </button>
-                {/* <h5>Quick Suggestion </h5> */}
-                {showQuickOptions && (
-                  <div className="min-box-wrapper-sb">
-                    {techLogos.map((tech, index) => (
-                      <div
-                        key={index}
-                        className="single-box-sb"
-                        onClick={() => handleCardClick(tech.name)}
-                      >
-                        <img
-                          src={tech.logo}
-                          alt={tech.name}
-                          className="smallCard-logo-sb"
-                        />
-                        <p>{tech.name}</p>
+          {!location.pathname.includes("mcqHistory/") &&
+            showQuickSuggestion && (
+              <div className="bg-grey">
+                {showQuickSuggestion && (
+                  <div className="suggestion-box-sb bg-grey">
+                    <button className="quick-suggestion" onClick={showOptions}>
+                      {showQuickOptions ? "Suggested Topic" : "Suggested Topic"}
+                    </button>
+                    {/* <h5>Quick Suggestion </h5> */}
+                    {showQuickOptions && (
+                      <div className="min-box-wrapper-sb bg-grey">
+                        {techLogos.map((tech, index) => (
+                          <div
+                            key={index}
+                            className="single-box-sb"
+                            onClick={() => handleCardClick(tech.name)}
+                          >
+                            <img
+                              src={tech.logo}
+                              alt={tech.name}
+                              className="smallCard-logo-sb"
+                            />
+                            <p>{tech.name}</p>
+                          </div>
+                        ))}
                       </div>
-                    ))}
+                    )}
                   </div>
                 )}
               </div>
             )}
-          </div>
         </div>
       )}
 
       {showSuggestion && (
-        <div id="nav-footer">
-          <div id="nav-footer-heading">
-            <div id="nav-footer-avatar">
-              <img src={authData?.profile_picture} alt="profile_picture" />
-            </div>
-            <div id="nav-footer-titlebox">
-              <p id="nav-footer-title">{userInfo.name}</p>
-            </div>
-            <label htmlFor="nav-footer-toggle">
-              <i className="fas fa-caret-up"></i>
-            </label>
+        <div className="nav-footer-wrapper">
+          <div className="image-container">
+            <img src={authData?.profile_picture} alt="profile_picture" />
+          </div>
+          <div>
+            <p id="nav-footer-title">{userInfo.name}</p>
           </div>
         </div>
       )}
