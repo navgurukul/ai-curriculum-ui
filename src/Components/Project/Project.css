@@ -105,6 +105,12 @@
   padding-top: 3%;
   /* border-left: 0.5px solid grey; */
   width: 50%;
+  scrollbar-width: none; 
+  -ms-overflow-style: none; 
+}
+
+.result-project ::-webkit-scrollbar {
+  display: none; 
 }
 
 .project-details {
@@ -115,7 +121,7 @@
 
 .form-detail {
   /* border: 3px solid rgb(222, 231, 56); */
-  width: 44.5%;
+  width: 40%;
   margin: 0px auto;
   /* flex: 1; */
   display: flex;
@@ -155,10 +161,15 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  /* padding: 1% 2%;  */
   min-height: 100px;
   max-height: 230px;
   overflow-y: scroll;
+  scrollbar-width: none; 
+  -ms-overflow-style: none; 
+}
+
+.projects-list::-webkit-scrollbar {
+  display: none;
 }
 
 .project-entry {
@@ -172,7 +183,7 @@
   cursor: pointer;
 
   min-width: 135px;
-  margin: 10px 20px;
+  margin: 10px 10px;
   display: flex;
   /* justify-content: space-between; */
   align-items: center;

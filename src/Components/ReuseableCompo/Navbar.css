@@ -22,6 +22,11 @@
   }
 }
 
+.nav-options{ 
+  position: relative;
+  right: 2.2%;
+}
+
 .nav-options span{
     margin: 25px 15px;
     font-size: 14px;
