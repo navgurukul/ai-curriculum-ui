@@ -343,7 +343,7 @@ const Project = () => {
                     style={{ cursor: "pointer" }}
                     disabled={!nextRequest}
                   >
-                    {nextRequest ? "Generate Project" : "Please wait..."}
+                    {nextRequest ? "Generate Projects" : "Please wait..."}
                   </button>
                 </div>
               </div>

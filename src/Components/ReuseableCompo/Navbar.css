@@ -4,18 +4,28 @@
     justify-content: space-between;
     align-items: center;
     padding: 10px 20px;
-    border-bottom: 0.1px solid gray;
+    /* border-bottom: 0.1px solid gray; */
+    background-color: var(--grey-bg-color);
     position: fixed;
     width: 100%;
+    a{
+      border: 1px solid var(--grey-bg-color);
+      background-color: var(--grey-bg-color);
+    }
 }
 
 .nav .curriculum-text{ 
   color: var(--transparent-button);
+  background-color: var(--grey-bg-color);
+  span{
+    background-color: var(--grey-bg-color);
+  }
 }
 
 .nav-options span{
     margin: 25px 15px;
     font-size: 14px;
+    background-color: var(--grey-bg-color);
 }
 
 .nav-options span.active {
@@ -24,7 +34,10 @@
     text-decoration-color: var(--transparent-button);
     text-decoration-thickness: 3px; 
   }
-  
+
+  .profile-section{
+    background-color: var(--grey-bg-color);
+  }
 
 .profile-section img{
     width: 40px;
