@@ -2,7 +2,8 @@ import React, {createContext, useContext, useReducer} from "react";
 import reducer from "./Reducer";
 
 const initialState = {
-    quickSuggestionData:""
+    quickSuggestionData:"",
+    // isSidebarVisible: false,
 }
 
 const Context = createContext(initialState);
@@ -19,3 +20,8 @@ const ContextProvider = ({children}) => {
 };
 
 export default ContextProvider;
+
+
+
+
+

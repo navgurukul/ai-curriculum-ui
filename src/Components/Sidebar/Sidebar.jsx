@@ -146,6 +146,11 @@ const Sidebar = () => {
     setShowSuggestion(!showSuggestion);
   };
 
+  // const { state } = useValue();
+  // const { isSidebarVisible } = state;
+
+  // if (!isSidebarVisible) return null;
+
   return (
     <div id="nav-bar" style={{ border: "0.1px solid lightgrey" }}>
       <input

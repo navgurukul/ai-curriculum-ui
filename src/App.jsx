@@ -19,7 +19,9 @@ const App = () => {
   const showSidebar = location.pathname !== "/";
 
   return (
-    <div className="app" style={{ width: "100%" }}>
+    <div className="app" style={{ maxWidth: "1600px", margin: "0px auto"}}>
+    {/* <div className="app" style={{ maxWidth: "1600px", margin: "0px auto"}}> */}
+
       {showSidebar && <Sidebar />}
       <div className={`main-content ${showSidebar ? "with-sidebar" : ""}`}>
         <Routes>

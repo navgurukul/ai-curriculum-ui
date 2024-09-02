@@ -4,9 +4,34 @@ const reducer = (state, action) => {
       return { ...state, quickSuggestionData: action.payload };
     case "CLEAR_SUGGESTION_DATA":
       return { ...state, quickSuggestionData: "" };
+      // case "TOGGLE_SIDEBAR": 
+      // return { ...state, isSidebarVisible: !state.isSidebarVisible };
     default:
       throw new Error("No Matched Action!");
   }
 };
 
 export default reducer;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

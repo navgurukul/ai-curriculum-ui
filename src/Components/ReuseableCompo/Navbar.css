@@ -54,10 +54,28 @@
     color: black;
   }
 
-  @media screen and (max-width: 426px) {
-  .dropdown-menu span {
-    padding: 4px 10px;
+  .hamburger button {
+    background: none;
+    border: none;
+    font-size: 24px;
     cursor: pointer;
   }
 
+  @media (max-width: 426px) {
+    .dropdown-menu span {
+      padding: 4px 10px;
+      cursor: pointer;
+    }
+
+    .nav .curriculum-text {
+      display: none;
+    }
+    
+    
+
+    
 }
+
+
+
+

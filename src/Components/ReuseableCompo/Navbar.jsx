@@ -3,6 +3,7 @@ import { useState } from "react";
 import { assets } from "../../assets/assets";
 import { Logout } from "../../utils/Logout";
 import "./Navbar.css";
+// import { useValue } from "../../context/ContextProvider";
 // import { Tooltip } from 'react-tooltip'
 
 const Navbar = () => {
@@ -10,17 +11,25 @@ const Navbar = () => {
   const [dropdownVisible, setDropdownVisible] = useState(false);
   const auth = JSON.parse(localStorage.getItem("AUTH"));
   const profilePicture = auth?.profile_picture || assets.Student;
+  // const { state, dispatch } = useValue();
 
   const toggleDropdown = () => {
     setDropdownVisible(!dropdownVisible);
   };
 
+//   const handleSidebarToggle = () => {
+//     dispatch({ type: "TOGGLE_SIDEBAR" });
+// };
+
   return (
     <div className="nav">
-      <div>
-        <h3 className="curriculum-text">
-          Curriculum <span>AI</span>{" "}
-        </h3>
+      {/* <div className="hamburger">
+        <button onClick={handleSidebarToggle}>☰</button>
+      </div> */}
+      <div> 
+          <h3 className="curriculum-text">
+            Curriculum <span>AI</span>{" "}
+          </h3>
       </div>
       <div className="nav-options">
         <Link to="/mcq" style={{ textDecoration: "none" }}>
