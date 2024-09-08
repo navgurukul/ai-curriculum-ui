@@ -202,6 +202,7 @@
     font-size: 40px;
   }
   .content {
+    padding: 0px;
     flex-direction: column-reverse;
   }
   .image-section img {
