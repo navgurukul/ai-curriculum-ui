@@ -17,7 +17,7 @@ const Navbar = () => {
 
   return (
     <div className="nav">
-      <div>
+      <div className="text-wrapper" >
         <h3 className="curriculum-text">
           Curriculum <span>AI</span>{" "}
         </h3>

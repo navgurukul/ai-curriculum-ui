@@ -89,7 +89,12 @@ const LoginPage = () => {
               </div>
             </div>
             <div className="navigation">
-              <a href={loginUrl}>Get Started</a>
+              <button
+                className="get-started-btn"
+                onClick={() => (window.location.href = loginUrl)}
+              >
+                Get Started
+              </button>
             </div>
           </header>
           <div className="content">

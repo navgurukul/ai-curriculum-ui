@@ -301,8 +301,7 @@ const Project = () => {
                 </div>
 
                 <div
-                  className="project-num-wrapper"
-                  style={{ margin: "10px 0px" }}
+                  className="project-num-wrapper" 
                 >
                   {/* <label htmlFor="numProjects">Number of Projects:</label> */}
                   <input
