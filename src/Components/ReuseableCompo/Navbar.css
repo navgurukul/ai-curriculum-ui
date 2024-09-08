@@ -74,6 +74,10 @@
   }
 
   @media screen and (max-width: 426px) {
+     
+    .text-wrapper{
+      display: none;
+    }
   .dropdown-menu span {
     padding: 4px 10px;
     cursor: pointer;

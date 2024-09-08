@@ -22,7 +22,7 @@
 }
 
 .code-block {
-  background-color:#2F2F2F;
+  background-color: #2f2f2f;
   color: white;
   padding: 10px;
   border-radius: 5px;
@@ -55,4 +55,27 @@
   b{
     /* background-color: var(--grey-bg-color); */
   }
-} 
+}
+
+@media screen and (max-width: 770px) {
+  .result-title-MG {
+    width: 80%;
+  }
+  .result-data {
+    width: 80%;
+  }
+}
+
+@media screen and (max-width: 426px) {
+  .result-title-MG {
+    padding-top: 5%;
+    width: 100%;
+  }
+
+  .result-data {
+    width: 100%;
+  }
+  .received-info {
+    width: 90vw;
+  }
+}

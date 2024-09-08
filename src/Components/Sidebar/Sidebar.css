@@ -528,3 +528,10 @@ label[for="nav-footer-toggle"] {
 .bg-grey {
   background-color: var(--grey-bg-color);
 }
+
+
+@media screen and (max-width: 426px) {
+  #nav-bar{
+    display: none;
+  }
+}

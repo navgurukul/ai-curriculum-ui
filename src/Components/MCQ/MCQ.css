@@ -6,7 +6,7 @@
   width: var(--img-width-small-card);
   height: var(--img-height-small-card);
   border-radius: 50px;
-  margin-right: 10px;
+  margin-right: 20px;
 }
 
 .main-container-experi {
@@ -278,6 +278,12 @@
   }
 }
 
+@media screen and (max-width: 1025px) {
+  .min-box-wrapper {
+    width: 80%; 
+  }
+}
+
 @media screen and (max-width: 985px) {
   .min-box-wrapper {
     width: 100%;
@@ -294,6 +300,10 @@
   }
   .file-info {
     display: none;
+  }
+
+  .result {
+    padding-top: 10%;
   }
 
   /* .topic-name,
@@ -321,15 +331,14 @@
   }
 
   .result {
-    padding-bottom: 5%;
-    height: 70vh;
+    padding-top: 20%;
+    margin-bottom: 20%;
   }
 
   .input-feed {
     position: fixed;
     bottom: 0px;
     width: 100%;
-    /* border: 1px solid red; */
   }
 
   .topic-name,
@@ -346,12 +355,14 @@
   }
 
   .btn-wrapper .generate-mcq-btn {
-    /* width: 55%; */
+    width: 100%;
     padding: 7px 10px;
   }
-
-  .input-field-wrapper input {
-    /* width: 100%; */
-    padding: 6px 10px;
+  .input-field-wrapper {
+    padding: 0px;
+    width: 100%;
+  }
+  .main-input-wrapper {
+    width: 100%;
   }
 }
