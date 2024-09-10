@@ -69,6 +69,10 @@ const MCQ = () => {
       toast.error("Number of MCQs cannot be negative.");
       return;
     }
+    if (!Number.isInteger(Number(mcqNumber))) {
+      toast.error("Number of MCQs cannot be a decimal.");
+      return;
+    }
     if (mcqNumber < 5) {
       toast.error("You need to generate at least 5 MCQs.");
       return;
