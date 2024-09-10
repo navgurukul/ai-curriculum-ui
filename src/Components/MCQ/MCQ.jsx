@@ -264,7 +264,7 @@ const MCQ = () => {
             </div>
           </div>
         </div>
-        <ToastContainer />
+        <ToastContainer position="bottom-right" />
       </div>
 
       {isModalOpen && (
