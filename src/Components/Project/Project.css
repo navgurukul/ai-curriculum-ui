@@ -12,7 +12,7 @@
 
 .input-topic-wrapper {
   margin: 10px 0px;
-  /* width: 50%; */
+  width: 67%;
   display: flex;
   flex-direction: column;
   /* justify-content: center; */
@@ -229,11 +229,14 @@
 
 .radio-btn-wrapper {
   background-color: var(--grey-bg-color);
+  label{
+    margin-right: 19px;
+  }
   span {
     background-color: var(--grey-bg-color);
   }
   input {
-    margin: 5px 20px;
+    margin: 5px 5px;
   }
 }
 
@@ -291,6 +294,16 @@
 .bg-grey{
   background-color: var(--grey-bg-color);
 }
+@media screen and (max-width: 1440px) {
+  .input-topic-wrapper {
+     input{
+      margin: 2px;
+     }
+     label{
+      margin-right: 15px;
+     }
+  }
+}
 
 @media screen and (max-width: 1226px) {
   .input-topic-wrapper {
@@ -309,12 +322,18 @@
     /* position: fixed;
     bottom: 0;
     left: 0; */
-    width: 50%;
+    width: 45%;
   }
 
   .input-topic-wrapper {
     width: 100%;
-    padding: 0px 5%;
+    padding: 0px 8%;
+    label{
+      margin-right: 15px;
+    }
+    input{
+      margin: 2px;
+    }
   }
   .project-entry {
     width: 120px;
@@ -328,6 +347,15 @@
   }
   .result-project{
     width: 80%;
+  }
+  .input-topic-wrapper { 
+    span{
+      font-size: 12px;
+    }
+    label{
+      margin-right: 8px;
+      font-size: 12px;
+    }
   }
 
   .project-num-wrapper input {
