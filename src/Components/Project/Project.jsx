@@ -384,7 +384,7 @@ const Project = () => {
           </Modal>
         )}
       </div>
-      <ToastContainer />
+      <ToastContainer position="bottom-right" />
 
       {isModalOpen && (
         <Modal onClose={() => setIsModalOpen(false)}>
