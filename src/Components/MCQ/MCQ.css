@@ -357,6 +357,7 @@
   .btn-wrapper .generate-mcq-btn {
     width: 100%;
     padding: 7px 10px;
+    margin-bottom: 15px;
   }
   .input-field-wrapper {
     padding: 0px;
