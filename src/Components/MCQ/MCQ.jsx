@@ -65,6 +65,14 @@ const MCQ = () => {
       );
       return;
     }
+    if (mcqNumber < 5) {
+      toast.error("You need to generate at least 5 MCQs.");
+      return;
+    }
+    if (mcqNumber < 0) {
+      toast.error("Number of MCQs cannot be negative.");
+      return;
+    }
     if (typeof topic === "number" || !isNaN(topic)) {
       toast.error("Topic name should not be a number.");
       return;
